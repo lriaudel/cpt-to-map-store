@@ -1,47 +1,54 @@
+#, fuzzy
 msgid ""
 msgstr ""
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
 "Project-Id-Version: CPT to Map Store\n"
-"POT-Creation-Date: 2020-05-14 21:32+0200\n"
-"PO-Revision-Date: 2020-05-14 21:32+0200\n"
-"Last-Translator: madvic <madvic@gmail.com>\n"
-"Language-Team: lriaudel\n"
-"Language: fr\n"
+"POT-Creation-Date: 2020-05-14 22:09+0200\n"
+"PO-Revision-Date: 2020-05-14 22:08+0200\n"
+"Last-Translator: Ludovic Riaudel <lriaudel@gmail.com>\n"
+"Language-Team: Ludovic Riaudel <lriaudel@gmail.com>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Poedit 2.3.1\n"
 "X-Poedit-Basepath: ..\n"
-"Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Poedit-KeywordsList: __;_e\n"
+"X-Poedit-Flags-xgettext: --add-comments=translators:\n"
+"X-Poedit-WPHeader: cpt-to-map-store.php\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;"
+"esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;_n_noop:1,2;"
+"_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
 "X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: *.min.js\n"
 
+#. Plugin Name of the plugin/theme
 #: admin/class-cpt-to-map-store-admin.php:93
 #: admin/class-cpt-to-map-store-admin.php:94
 msgid "CPT to Map Store"
-msgstr "CPT to Map Store"
+msgstr ""
 
 #: admin/class-cpt-to-map-store-admin.php:140
 msgid "Settings saved!"
-msgstr "Paramètres sauvegardés"
+msgstr ""
 
 #: admin/partials/cpt-to-map-store-admin-settings.php:8
 msgid "Custom Post Type to Map Store"
-msgstr "Custom Post Type to Map Store"
+msgstr ""
 
 #: admin/partials/cpt-to-map-store-admin-settings.php:21
 msgid "Object"
-msgstr "Objet"
+msgstr ""
 
 #: admin/partials/cpt-to-map-store-admin-settings.php:26
 msgid "Post Type"
-msgstr "Type de post"
+msgstr ""
 
 #: admin/partials/cpt-to-map-store-admin-settings.php:27
 #: admin/partials/cpt-to-map-store-admin-settings.php:60
 #: admin/partials/cpt-to-map-store-admin-settings.php:81
 #: admin/partials/cpt-to-map-store-admin-settings.php:109
 msgid "Required"
-msgstr "Requis"
+msgstr ""
 
 #: admin/partials/cpt-to-map-store-admin-settings.php:45
 msgid ""
@@ -49,113 +56,110 @@ msgid ""
 "\"Mapping\" zone below, it means that the meta fields have not been created "
 "or they are private fields (starting with `_`)."
 msgstr ""
-"Choisissez un type de post. Si rien ne vous ai proposé dans les listes "
-"déroulantes dans la zone \"Mapping\" ci-dessous, cela veux sans doute dire "
-"que les champ n'ont pas été créé ou bien ce sont des champ privés "
-"(commençant par _`)."
 
 #: admin/partials/cpt-to-map-store-admin-settings.php:52
 msgid "Mapping"
-msgstr "Mapping"
+msgstr ""
 
 #: admin/partials/cpt-to-map-store-admin-settings.php:59
 msgid "Point name"
-msgstr "Nom du point"
+msgstr ""
 
 #: admin/partials/cpt-to-map-store-admin-settings.php:64
 msgid "Post Title (<em>post_title</em> - default)"
-msgstr "Titre du post (<em>post_title</em> - défaut)"
+msgstr ""
 
 #: admin/partials/cpt-to-map-store-admin-settings.php:66
 msgid "The title's marker is the Post Type's title"
-msgstr "Le titre du marqueur est le titre du post"
+msgstr ""
 
 #: admin/partials/cpt-to-map-store-admin-settings.php:80
 msgid "Latitude"
-msgstr "Latitude"
+msgstr ""
 
 #: admin/partials/cpt-to-map-store-admin-settings.php:87
 msgid " -- Select a latitude field -- "
-msgstr "-- Selectionnez le champ latitude --"
+msgstr ""
 
 #: admin/partials/cpt-to-map-store-admin-settings.php:101
 msgid "The field where the value of the latitude is stored"
-msgstr "Le champ où la latitude est stockée"
+msgstr ""
 
 #: admin/partials/cpt-to-map-store-admin-settings.php:108
 msgid "Longitude"
-msgstr "Longitude"
+msgstr ""
 
 #: admin/partials/cpt-to-map-store-admin-settings.php:115
 msgid " -- Select a longitude field -- "
-msgstr "-- Selectionnez le champ longitude --"
+msgstr ""
 
 #: admin/partials/cpt-to-map-store-admin-settings.php:128
 msgid "The field where the value of the longitude is stored"
-msgstr "Le champ où la longitude est stockée"
+msgstr ""
 
 #: admin/partials/cpt-to-map-store-admin-settings.php:134
 msgid "Description point"
-msgstr "Description du point"
+msgstr ""
 
 #: admin/partials/cpt-to-map-store-admin-settings.php:139
 msgid " -- Select a description field -- "
-msgstr "-- Selectionnez le champ description --"
+msgstr ""
 
 #: admin/partials/cpt-to-map-store-admin-settings.php:153
 msgid "The field is displaying in the popup below the name."
-msgstr "Le champ est affiché  dans la popup en dessous le nom du marqueur"
+msgstr ""
 
 #: admin/partials/cpt-to-map-store-admin-settings.php:159
 msgid "Active template"
-msgstr "Template actif"
+msgstr ""
 
 #: admin/partials/cpt-to-map-store-admin-settings.php:167
 msgid "Replaced the name and description by the template below"
 msgstr ""
-"Remplace le nom et la description du marqueur par le template ci-dessous."
 
 #: admin/partials/cpt-to-map-store-admin-settings.php:176
 msgid "Template popup"
-msgstr "Template du popup"
+msgstr ""
 
 #: admin/partials/cpt-to-map-store-admin-settings.php:186
 msgid "You can customized the popup marker with any fields of the Post Type."
 msgstr ""
-"Vous pouvez personnaliser la popup du marqueur avec n'importe quels champ du "
-"type de post."
 
 #: admin/partials/cpt-to-map-store-admin-settings.php:189
 msgid "Fields list:"
-msgstr "Liste des champs"
+msgstr ""
 
 #: admin/partials/cpt-to-map-store-admin-settings.php:200
 msgid "Example:"
-msgstr "Exemple :"
+msgstr ""
 
 #: admin/partials/cpt-to-map-store-admin-settings.php:205
 msgid "For more info, click on the link!"
-msgstr "Pour plus d'infos, cliquez sur le lien !"
+msgstr ""
 
 #: admin/partials/cpt-to-map-store-admin-settings.php:219
 msgid "Map Width"
-msgstr "Largeur de la carte"
+msgstr ""
 
 #: admin/partials/cpt-to-map-store-admin-settings.php:225
 msgid "The width of the HTML div."
-msgstr "La largeur du clasque HTML"
+msgstr ""
 
 #: admin/partials/cpt-to-map-store-admin-settings.php:230
 msgid "Map Height"
-msgstr "Hauteur de la carte"
+msgstr ""
 
 #: admin/partials/cpt-to-map-store-admin-settings.php:236
 msgid "The height of the HTML div."
-msgstr "La hauteur du clasque HTML"
+msgstr ""
+
+#: admin/partials/cpt-to-map-store-admin-settings.php:262
+msgid "Save"
+msgstr ""
 
 #: admin/partials/cpt-to-map-store-presentation-card.php:2
 msgid "Objectives"
-msgstr "Objectifs"
+msgstr ""
 
 #: admin/partials/cpt-to-map-store-presentation-card.php:3
 msgid ""
@@ -165,15 +169,10 @@ msgid ""
 "org/html/rfc7946\">RFC 7946</a>) usable by mapping tools such as Open Street "
 "Map or Google Map."
 msgstr ""
-"Le premier objectif est de récupérer les coordonnées géographiques présentes "
-"dans un type de contenu personnalisé afin de créer un fichier json (<a href="
-"\"https://en.wikipedia.org/wiki/GeoJSON\">GEOJson></a> ; <a href=\"https://"
-"tools.ietf.org/html/rfc7946\">RFC 7946</a>) utilisable par des outils "
-"cartographiques tels que Open Street Map ou Google Map."
 
 #: admin/partials/cpt-to-map-store-presentation-card.php:4
 msgid "You can use this feed for your custom map."
-msgstr "Vous pouvez utiliser ce flux pour votre carte personnalisée.."
+msgstr ""
 
 #: admin/partials/cpt-to-map-store-presentation-card.php:5
 msgid ""
@@ -182,64 +181,46 @@ msgid ""
 "leafletjs.com/\">Leaflet</a>) and the possibility to customized the popup's "
 "marker rendering."
 msgstr ""
-"Le second objectif est de proposer un affichage facile de ces données par "
-"une simple carte <a href=\"https://www.openstreetmap.org/\">OSM</a> (avec <a "
-"href=\"https://leafletjs.com/\">Leaflet</a>) et la possibilité de "
-"personnaliser le rendu de la popup des marqueurs."
 
 #: admin/partials/cpt-to-map-store-presentation-card.php:7
 msgid "JSON Feed urls"
-msgstr "Urls du flux JSON"
+msgstr ""
 
 #: admin/partials/cpt-to-map-store-presentation-card.php:16
 msgid "Map"
-msgstr "Carte"
+msgstr ""
 
 #: admin/partials/cpt-to-map-store-presentation-card.php:17
 msgid "Shortcode : "
-msgstr "Shortcode : "
+msgstr ""
+
+#: admin/partials/cpt-to-map-store-presentation-card.php:23
+msgid "Title for Example Link Button"
+msgstr ""
 
 #: admin/partials/cpt-to-map-store-presentation-card.php:24
 msgid "Test Map"
-msgstr "Tester la carte"
+msgstr ""
 
 #: admin/partials/cpt-to-map-store-presentation-card.php:31
 msgid "You could help on the repository:"
-msgstr "Vous pouvez aider au développement sur GitHub :"
+msgstr ""
 
 #: admin/partials/cpt-to-map-store-presentation-card.php:35
 msgid "Donate"
-msgstr "Donnez"
+msgstr ""
 
-#~ msgid ""
-#~ "You can customized the popup marker with any information of the Custom "
-#~ "Post."
-#~ msgstr ""
-#~ "Vous pouvez personnaliser le popup du marqueur avec n'importe quelle "
-#~ "information du type de post."
+#. Plugin URI of the plugin/theme
+#. Author URI of the plugin/theme
+msgid "riaudel.net"
+msgstr ""
 
-#~ msgid "You could help on the repository : "
-#~ msgstr "Vous pouvez aider au développement sur GitHub :"
+#. Description of the plugin/theme
+msgid ""
+"This is a short description of what the plugin does. It's displayed in the "
+"WordPress admin area."
+msgstr ""
 
-#~ msgid "You could help on the repository"
-#~ msgstr "Vous pouvez aider au développement sur GitHub :"
-
-#~ msgid ""
-#~ "Choose a type of post. If no fields are proposed in the drop-down menu in "
-#~ "the \"Mapping\" zone below,\n"
-#~ "\t\t\t\t\t\t\t\tit means that the meta fields have not been created or "
-#~ "they are private fields (starting with `_`)."
-#~ msgstr ""
-#~ "Choisissez un type de post. Si rien ne vous ai proposé dans les listes "
-#~ "déroulantes dans la zone \"Mapping\" ci-dessous."
-
-#~ msgid ""
-#~ "The second goal is to propose an easy display of this data by a simple <a "
-#~ "href=\"https://www.openstreetmap.org/\">OSM map</a> (with <a href="
-#~ "\"https://leafletjs.com/\">Leaflet</a>) and the possibility to customized "
-#~ "the poopup's marker rendering."
-#~ msgstr ""
-#~ "Le second objectif est de proposer un affichage simple de ces données par "
-#~ "une carte <a href=\"https://www.openstreetmap.org/\">OSM</a> (avec <a "
-#~ "href=\"https://leafletjs.com/\">Leaflet</a>) et la possibilité de "
-#~ "personnaliser le rendu des marqueurs du caca."
+#. Author of the plugin/theme
+msgid "Ludovic RIAUDEL"
+msgstr ""

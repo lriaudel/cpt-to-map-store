@@ -35,4 +35,3 @@
 			<a href="https://www.paypal.me/lriaudel" style="color:black; background-color:orange; border-radius:1em;padding:5px 15px;font-weight:bold;box-shadow: 2px 2px 0px #aaa; "><?php _e('Donate', 'ctp-to-map-store'); ?></a>
 		</p>
 	</div>
-	Vous pouvez aider au développement sur GitHub :
