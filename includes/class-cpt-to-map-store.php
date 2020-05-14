@@ -87,10 +87,6 @@ class Cpt_To_Map_Store {
 
 		$this->plugin_name = CPT_TO_MAP_STORE_NAME;
 
-		$this->load_dependencies();
-
-		$this->set_locale();
-
 		if( is_admin() ) 
 			$this->define_admin_hooks();
 
@@ -98,6 +94,18 @@ class Cpt_To_Map_Store {
 			$this->define_public_hooks();
 
 		$this->register_api_rest_route();
+
+	}
+
+	/**
+	 * Load the required dependencies for this plugin.
+	 *
+	 * - Cpt_To_Map_Store_i18n. Defines internationalization functionality.
+	 *
+	 * @since    1.0.0
+	 * @access   private
+	 */
+	private function load_dependencies() {
 
 	}
 
@@ -121,41 +129,6 @@ class Cpt_To_Map_Store {
 	 */
 	public function get_version() {
 		return $this->version;
-	}
-
-	/**
-	 * Load the required dependencies for this plugin.
-	 *
-	 * - Cpt_To_Map_Store_i18n. Defines internationalization functionality.
-	 * - Cpt_To_Map_Store_Admin. Defines all hooks for the admin area.
-	 * - Cpt_To_Map_Store_Public. Defines all hooks for the public side of the site.
-	 *
-	 * @since    1.0.0
-	 * @access   private
-	 */
-	private function load_dependencies() {
-
-		/**
-		 * The class responsible for defining internationalization functionality
-		 * of the plugin.
-		 */
-		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-cpt-to-map-store-i18n.php';
-
-	}
-
-	/**
-	 * Define the locale for this plugin for internationalization.
-	 *
-	 * Uses the Cpt_To_Map_Store_i18n class in order to set the domain and to register the hook
-	 * with WordPress.
-	 *
-	 * @since    1.0.0
-	 * @access   private
-	 */
-	private function set_locale() {
-
-		$plugin_i18n = new Cpt_To_Map_Store_i18n();
-
 	}
 
 	/**
@@ -300,7 +273,6 @@ class Cpt_To_Map_Store {
 			else {
 				// Soucis... si valeur trouvé dans tableau, il faut chercher un tableau a parcourir... donc on retourne false pour le moment
 				return false;
-				return $this->_get_coord_recursive( $data[0] , $var_name ); 
 			}
 		}
 		

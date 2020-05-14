@@ -39,6 +39,17 @@ register_deactivation_hook( __FILE__, 'deactivate_cpt_to_map_store' );
 
 function activate_cpt_to_map_store(){}
 function deactivate_cpt_to_map_store(){}
+
+/**
+ * Load the plugin text domain for translation.
+ *
+ * @since    1.0.0
+ */
+function cpt_to_map_store_set_locale() {
+	load_plugin_textdomain( CPT_TO_MAP_STORE_NAME, false, basename( dirname( __FILE__ ) ) . '/languages/' );
+}
+add_action( 'plugins_loaded', 'cpt_to_map_store_set_locale' );
+
 /**
  * The core plugin class that is used to define internationalization,
  * admin-specific hooks, and public-facing site hooks.
@@ -46,6 +57,7 @@ function deactivate_cpt_to_map_store(){}
 require plugin_dir_path( __FILE__ ) . 'includes/class-cpt-to-map-store.php';
 
 require plugin_dir_path( __FILE__ ) . 'includes/functions.php';
+
 
 /**
  * Begins execution of the plugin.

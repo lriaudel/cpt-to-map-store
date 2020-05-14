@@ -247,7 +247,7 @@ class Cpt_To_Map_Store_Admin {
 	 *  href='options-general.php?page=cpt-to-map-store&tab=<?php echo $tab; ?>'>
 	 */
 	private function admin_setting_tabs( $current = 'cpt' ) {
-		$tabs = array( 'cpt' => 'Custom Post Type', 'map' => 'Map' );
+		$tabs = array( 'cpt' => __('Custom Post Type', 'cpt-to-map-store') , 'map' => __('Map', 'cpt-to-map-store') );
 		?>
 		<h2 class="nav-tab-wrapper">
 		<?php foreach( $tabs as $tab => $name ) : ?>

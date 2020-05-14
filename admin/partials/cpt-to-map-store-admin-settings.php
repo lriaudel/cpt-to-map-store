@@ -18,13 +18,13 @@
 				<tbody>
 					<tr>
 						<th>
-							<h3><?php _e('Object', 'ctp-to-map-store'); ?></h3>
+							<h3><?php _e('Object', 'cpt-to-map-store'); ?></h3>
 						</th>
 					</tr>
 					<tr>
 						<th scope="row">
-							<label for="post_type"><?php _e('Post Type', 'ctp-to-map-store'); ?></label>
-							<code>(<?php _e('Required', 'ctp-to-map-store'); ?>)</code>
+							<label for="post_type"><?php _e('Post Type', 'cpt-to-map-store'); ?></label>
+							<code>(<?php _e('Required', 'cpt-to-map-store'); ?>)</code>
 						</th>
 						<td>
 						
@@ -49,19 +49,19 @@
 
 					<tr>
 						<th>
-							<h3><?php _e('Mapping', 'ctp-to-map-store'); ?></h3>
+							<h3><?php _e('Mapping', 'cpt-to-map-store'); ?></h3>
 						</th>
 					</tr>
 
 					<!-- NAME -->
 					<tr>
 						<th scope="row">
-							<label for="name"><?php _e('Point name', 'ctp-to-map-store'); ?></label>
-							<code>(<?php _e('Required', 'ctp-to-map-store'); ?>)</code>
+							<label for="name"><?php _e('Point name', 'cpt-to-map-store'); ?></label>
+							<code>(<?php _e('Required', 'cpt-to-map-store'); ?>)</code>
 						</th>
 						<td>
 							<select name="name" id="name" disabled>
-								<option  value="post_title"><?php _e('Post Title (<em>post_title</em> - default)', 'ctp-to-map-store'); ?></option>
+								<option  value="post_title"><?php _e('Post Title (<em>post_title</em> - default)', 'cpt-to-map-store'); ?></option>
 							</select>
 							<p class="description" id="name-description"><?php _e("The title's marker is the Post Type's title" , 'cpt-to-map-store'); ?></p>
 						</td>
@@ -77,14 +77,14 @@
 					<!-- LATITUDE -->
 					<tr>
 						<th scope="row">
-							<label for="latitude"><?php _e('Latitude', 'ctp-to-map-store'); ?></label>
-							<code>(<?php _e('Required', 'ctp-to-map-store'); ?>)</code>
+							<label for="latitude"><?php _e('Latitude', 'cpt-to-map-store'); ?></label>
+							<code>(<?php _e('Required', 'cpt-to-map-store'); ?>)</code>
 						</th>
 						<td>
 						
 							<select name="latitude" id="latitude">
 
-								<option value=""><?php _e(' -- Select a latitude field -- ', 'ctp-to-map-store'); ?></option>
+								<option value=""><?php _e(' -- Select a latitude field -- ', 'cpt-to-map-store'); ?></option>
 
 							<?php foreach( $fields as $field ) : ?>
 								<?php $selected = ( esc_attr($field->meta_key) == $options['latitude'] ) ? 'selected' : ''; ?>
@@ -105,14 +105,14 @@
 					<!-- LONGITUDE -->
 					<tr>
 						<th scope="row">
-							<label for="longitude"><?php _e('Longitude', 'ctp-to-map-store'); ?></label>
-							<code>(<?php _e('Required', 'ctp-to-map-store'); ?>)</code>
+							<label for="longitude"><?php _e('Longitude', 'cpt-to-map-store'); ?></label>
+							<code>(<?php _e('Required', 'cpt-to-map-store'); ?>)</code>
 						</th>
 						<td>
 						
 							<select name="longitude" id="longitude">
 
-								<option value=""><?php _e(' -- Select a longitude field -- ', 'ctp-to-map-store'); ?></option>
+								<option value=""><?php _e(' -- Select a longitude field -- ', 'cpt-to-map-store'); ?></option>
 
 							<?php foreach( $fields as $field ) : ?>
 								<?php $selected = ( esc_attr($field->meta_key) == $options['longitude'] ) ? 'selected' : ''; ?>
@@ -131,12 +131,12 @@
 
 					<!-- Description point -->
 					<tr>
-						<th scope="row"><label for="description"><?php _e('Description point', 'ctp-to-map-store'); ?></label></th>
+						<th scope="row"><label for="description"><?php _e('Description point', 'cpt-to-map-store'); ?></label></th>
 						<td>
 							<p>
 							<select name="description" id="description">
 
-								<option value=""><?php _e(' -- Select a description field -- ', 'ctp-to-map-store'); ?></option>
+								<option value=""><?php _e(' -- Select a description field -- ', 'cpt-to-map-store'); ?></option>
 
 							<?php foreach( $fields as $field ) : ?>
 								<?php $selected = ( esc_attr($field->meta_key) == $options['description'] ) ? 'selected' : ''; ?>
@@ -156,7 +156,7 @@
 
 					<!-- Active template -->
 					<tr>
-						<th scope="row"><label for="description"><?php _e('Active template', 'ctp-to-map-store'); ?></label></th>
+						<th scope="row"><label for="description"><?php _e('Active template', 'cpt-to-map-store'); ?></label></th>
 						<td>
 							<p>
 								<fieldset>
@@ -164,7 +164,7 @@
 									<label for="active-template">
 										<?php $checked = ( empty( $options['active-template'] ) ) ? '' : 'checked'; ?>
 										<input name="active-template" type="checkbox" id="active-template" <?php echo $checked; ?>>
-										<?php _e('Replaced the name and description by the template below', 'ctp-to-map-store'); ?>
+										<?php _e('Replaced the name and description by the template below', 'cpt-to-map-store'); ?>
 									</label>
 								</fieldset>
 							</p>
@@ -173,7 +173,7 @@
 
 					<!-- Template -->
 					<tr>
-						<th scope="row"><label for="template-popup"><?php _e('Template popup', 'ctp-to-map-store'); ?></label></th>
+						<th scope="row"><label for="template-popup"><?php _e('Template popup', 'cpt-to-map-store'); ?></label></th>
 						<td>
 							<!-- Textarea -->
 							<p>
@@ -202,7 +202,7 @@
 								cols=80" rows="6"><a href="{guid}">
 	<table>
 		<tr><td><img src=""></td><td>{post_title}</td></tr>
-		<tr><td></td><td><?php _e('For more info, click on the link!','ctp-to-map-store'); ?></td></tr>
+		<tr><td></td><td><?php _e('For more info, click on the link!','cpt-to-map-store'); ?></td></tr>
 	</table>
 </a></textarea>
 
@@ -216,7 +216,7 @@
 				<tbody>
 					<tr>
 						<th scope="row">
-							<label for="map-width"><?php _e('Map Width', 'ctp-to-map-store'); ?></label>
+							<label for="map-width"><?php _e('Map Width', 'cpt-to-map-store'); ?></label>
 						</th>
 						<td>
 							<?php $value = ( empty( $options['map-width'] ) ) ? '100%' : $options['map-width']; ?>
@@ -227,7 +227,7 @@
 					</tr>
 					<tr>
 						<th scope="row">
-							<label for="map-height"><?php _e('Map Height', 'ctp-to-map-store'); ?></label>
+							<label for="map-height"><?php _e('Map Height', 'cpt-to-map-store'); ?></label>
 						</th>
 						<td>
 							<?php $value = ( empty( $options['map-height'] ) ) ? '500px' : $options['map-height']; ?>

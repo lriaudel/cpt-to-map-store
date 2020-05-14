@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: CPT to Map Store\n"
-"POT-Creation-Date: 2020-05-14 21:32+0200\n"
-"PO-Revision-Date: 2020-05-14 21:32+0200\n"
+"POT-Creation-Date: 2020-05-14 23:23+0200\n"
+"PO-Revision-Date: 2020-05-14 23:38+0200\n"
 "Last-Translator: madvic <madvic@gmail.com>\n"
 "Language-Team: lriaudel\n"
 "Language: fr\n"
@@ -23,6 +23,15 @@ msgstr "CPT to Map Store"
 #: admin/class-cpt-to-map-store-admin.php:140
 msgid "Settings saved!"
 msgstr "Paramètres sauvegardés"
+
+#: admin/class-cpt-to-map-store-admin.php:250
+msgid "Custom Post Type"
+msgstr "Custom Post Type"
+
+#: admin/class-cpt-to-map-store-admin.php:250
+#: admin/partials/cpt-to-map-store-presentation-card.php:16
+msgid "Map"
+msgstr "Carte"
 
 #: admin/partials/cpt-to-map-store-admin-settings.php:8
 msgid "Custom Post Type to Map Store"
@@ -190,10 +199,6 @@ msgstr ""
 #: admin/partials/cpt-to-map-store-presentation-card.php:7
 msgid "JSON Feed urls"
 msgstr "Urls du flux JSON"
-
-#: admin/partials/cpt-to-map-store-presentation-card.php:16
-msgid "Map"
-msgstr "Carte"
 
 #: admin/partials/cpt-to-map-store-presentation-card.php:17
 msgid "Shortcode : "
