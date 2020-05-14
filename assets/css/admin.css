@@ -1,0 +1,62 @@
+.title-settings {
+	grid-area: title;
+}
+.nav-tab-wrapper{
+	grid-area: tabmenu;
+}
+.fieldset-info {
+	display: none;
+	grid-area: info;
+}
+.fieldset-settings {
+	grid-area: settings;
+}
+.submit {
+	grid-area: submit;
+}
+.form {
+	display: grid;
+	grid-gap: 20px;
+	grid-template-columns: 1fr;
+	grid-template-areas:
+	"tabmenu"
+	"settings"
+	"submit";
+  }
+
+ @media (min-width: 1200px) {
+	.form {
+		  grid-template-columns: 1fr 1fr;
+		  grid-template-areas:
+		  "tabmenu tabmenu"
+		  "settings info"
+		  "submit submit";
+	}
+
+	.fieldset-info {
+		display: block;
+	}
+ }
+
+#form-map {
+	 display: none;
+ }
+.cpt-to-map-store-admin th label ~ code {
+	font-weight: 300;
+	font-size: 12px;
+}
+.cpt-to-map-store-admin li.badgeList {
+	display: inline;
+}
+.cpt-to-map-store-admin .badge {
+	background-color: #bbb;
+	margin:0.2em;
+	line-height: 2.5em;
+	border-radius: 10rem;
+	padding: .25em 0.6em 0.4em 0.6em;
+	font-weight: 600;
+	text-align: center;
+}
+.card ul {
+	list-style: disc;
+}
