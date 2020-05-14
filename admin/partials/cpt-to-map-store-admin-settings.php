@@ -42,8 +42,7 @@
 							</select>
 
 							<p class="description" id="geo_post_type-description">
-								<?php _e("Choose a type of post. If no fields are proposed in the drop-down menu in the \"Mapping\" zone below,
-								it means that the meta fields have not been created or they are private fields (starting with `_`)." , 'cpt-to-map-store'); ?></p>
+								<?php _e("Choose a post type. If no fields are proposed in the drop-down menu in the \"Mapping\" zone below, it means that the meta fields have not been created or they are private fields (starting with `_`)." , 'cpt-to-map-store'); ?></p>
 
 						</td>
 					</tr>
@@ -184,7 +183,7 @@
 								cols="80" rows="6"
 								class="all-"><?php echo mysql_to_textarea( $options['template-popup'] ); ?></textarea>
 							</p>						
-							<p class="description" id="template-popup-description"><?php _e("You can customized the popup marker with any information of the Custom Post." , 'cpt-to-map-store'); ?></p>
+							<p class="description" id="template-popup-description"><?php _e("You can customized the popup marker with any fields of the Post Type." , 'cpt-to-map-store'); ?></p>
 							
 							<!-- Fields list -->
 							<p><strong><?php _e("Fields list:" , 'cpt-to-map-store'); ?></strong></p>
