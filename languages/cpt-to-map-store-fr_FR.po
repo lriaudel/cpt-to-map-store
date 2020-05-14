@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: CPT to Map Store\n"
 "POT-Creation-Date: 2020-05-14 23:23+0200\n"
-"PO-Revision-Date: 2020-05-14 23:38+0200\n"
+"PO-Revision-Date: 2020-05-14 23:41+0200\n"
 "Last-Translator: madvic <madvic@gmail.com>\n"
 "Language-Team: lriaudel\n"
 "Language: fr\n"
@@ -60,7 +60,7 @@ msgid ""
 msgstr ""
 "Choisissez un type de post. Si rien ne vous ai proposé dans les listes "
 "déroulantes dans la zone \"Mapping\" ci-dessous, cela veux sans doute dire "
-"que les champ n'ont pas été créé ou bien ce sont des champ privés "
+"que les champs n'ont pas été créé ou bien ce sont des champs privés "
 "(commençant par _`)."
 
 #: admin/partials/cpt-to-map-store-admin-settings.php:52
@@ -152,7 +152,7 @@ msgstr "Largeur de la carte"
 
 #: admin/partials/cpt-to-map-store-admin-settings.php:225
 msgid "The width of the HTML div."
-msgstr "La largeur du clasque HTML"
+msgstr "La largeur du calque HTML"
 
 #: admin/partials/cpt-to-map-store-admin-settings.php:230
 msgid "Map Height"
@@ -160,7 +160,7 @@ msgstr "Hauteur de la carte"
 
 #: admin/partials/cpt-to-map-store-admin-settings.php:236
 msgid "The height of the HTML div."
-msgstr "La hauteur du clasque HTML"
+msgstr "La hauteur du calque HTML"
 
 #: admin/partials/cpt-to-map-store-presentation-card.php:2
 msgid "Objectives"
