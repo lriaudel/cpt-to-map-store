@@ -14,11 +14,11 @@
  *
  * @wordpress-plugin
  * Plugin Name:       CPT to Map Store
- * Plugin URI:        riaudel.net
+ * Plugin URI:        https://github.com/lriaudel/cpt-to-map-store
  * Description:       This is a short description of what the plugin does. It's displayed in the WordPress admin area.
  * Version:           1.0.0
  * Author:            Ludovic RIAUDEL
- * Author URI:        riaudel.net
+ * Author URI:        https://riaudel.net
  * License:           GPL-2.0+
  * License URI:       http://www.gnu.org/licenses/gpl-2.0.txt
  * Text Domain:       cpt-to-map-store

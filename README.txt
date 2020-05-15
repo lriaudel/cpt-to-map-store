@@ -41,9 +41,10 @@ e.g.
 
 == Frequently Asked Questions ==
 
-= It is simple? =
+= What are the requirements? =
 
-Yes, very simple.
+Have a Post Type with Latitide and Longitude meta fields.
+And add a custom fields (https://wordpress.org/support/article/custom-fields/, ACF plugin, Pods or others...)
 
 == Screenshots ==
 
