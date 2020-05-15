@@ -21,16 +21,16 @@ The plugin allows to :
 
 ### First page admin
 Admin > Settings > CPT to Map Store
-![Screenshot admin 1](https://raw.githubusercontent.com/lriaudel/cpt-to-map-store/master/screenshot-1.png "Screeshot admin 1")
+![Screenshot admin 1](https://raw.githubusercontent.com/lriaudel/cpt-to-map-store/master/.wordpress.org/screenshot-1.png "Screeshot admin 1")
 
 ### Second page admin
 
 Admin > Settings > CPT to Map Store > Map
 
-![Screenshot admin 2](https://raw.githubusercontent.com/lriaudel/cpt-to-map-store/master/screenshot-2.png "Screeshot admin 2")
+![Screenshot admin 2](https://raw.githubusercontent.com/lriaudel/cpt-to-map-store/master/.wordpress.org/screenshot-2.png "Screeshot admin 2")
 
 ### Rest-API
-![GeoJson](https://raw.githubusercontent.com/lriaudel/cpt-to-map-store/master/screenshot-3.png "GeoJson")
+![GeoJson](https://raw.githubusercontent.com/lriaudel/cpt-to-map-store/master/.wordpress.org/screenshot-3.png "GeoJson")
 
 ### Map
-![Map](https://raw.githubusercontent.com/lriaudel/cpt-to-map-store/master/screenshot-4.png "Map")
+![Map](https://raw.githubusercontent.com/lriaudel/cpt-to-map-store/master/.wordpress.org/screenshot-4.png "Map")
