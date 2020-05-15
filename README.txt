@@ -5,6 +5,7 @@ Tags: map, geojson, openstreetmap, open street map, store locator, locator, stor
 Requires at least: 3.0.1
 Tested up to: 5.4
 Stable tag: 5.4
+Requires PHP: 7.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -60,9 +61,6 @@ Yes, very simple.
 Nothing
 
 == Arbitrary section ==
-
-You may provide arbitrary sections, in the same format as the ones above.  This may be of use for extremely complicated
-plugins where more information needs to be conveyed that doesn't fit into the categories of "description" or
-"installation."  Arbitrary sections will be shown below the built-in sections outlined above.
+Nothing to say!
 
 ==
