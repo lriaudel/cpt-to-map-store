@@ -361,10 +361,10 @@ class Cpt_To_Map_Store {
 
 			$template = self::get_option('template-popup');
 
-			$models = array_map( 'accolade', array_keys($metas) );
+			$models = array_map( 'cpt_to_map_store_accolade', array_keys($metas) );
 			//var_dump($models, $metas);
 
-		return mysql_to_textarea( str_replace($models, $metas, $template ) );
+		return cpt_to_map_store_mysql_to_textarea( str_replace($models, $metas, $template ) );
 	}
 
 

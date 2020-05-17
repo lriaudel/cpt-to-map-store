@@ -54,10 +54,23 @@ add_action( 'plugins_loaded', 'cpt_to_map_store_set_locale' );
  * The core plugin class that is used to define internationalization,
  * admin-specific hooks, and public-facing site hooks.
  */
-require plugin_dir_path( __FILE__ ) . 'includes/class-cpt-to-map-store.php';
+if ( !class_exists('Cpt_To_Map_Store') ) {
 
-require plugin_dir_path( __FILE__ ) . 'includes/functions.php';
+	require plugin_dir_path( __FILE__ ) . 'includes/class-cpt-to-map-store.php';
 
+	require plugin_dir_path( __FILE__ ) . 'includes/functions.php';
+
+}
+else {
+
+	add_action( 'admin_notices', function() {
+		$class = 'notice notice-error';
+		$message = __( 'Sorry, the slug and class used for the plugin CPT to Map Store is already used! The plugin is not launch.', 'cpt-to-map-store' );
+	
+		printf( '<div class="%1$s"><p>%2$s</p></div>', esc_attr( $class ), esc_html( $message ) ); 
+	} );
+
+}
 
 /**
  * Begins execution of the plugin.

@@ -9,9 +9,6 @@
 			<?php $api_link = get_rest_url(null, '/' . Cpt_To_Map_Store::$api_slug .'/'. Cpt_To_Map_Store::get_option('geo_post_type') . '/' ); ?>
 			<a href="<?php echo $api_link; ?>" target="apri-rest-cpt-to-map-store"><?php echo $api_link; ?></a>
 		</p>
-		<p>
-		<a href="<?php echo site_url(); ?>/wp-content/plugins/cpt-to-map-store/data/GEOJson.php"><?php echo site_url(); ?>/wp-content/plugins/cpt-to-map-store/data/GEOJson.php</a>
-		</p>
 
 		<h2 class="title"><?php _e('Map', 'cpt-to-map-store'); ?></h2>
 		<p><?php _e('Shortcode : ', 'cpt-to-map-store'); ?><strong><?php echo '[' . Cpt_To_Map_Store_Public::$shortcode_name . ']'; ?></p>
@@ -19,7 +16,7 @@
 			<a
 				class="button-secondary"
 				target="_blank"
-				href="<?php echo site_url(); ?>/wp-content/plugins/cpt-to-map-store/data/map.php"
+				href="<?php echo WP_PLUGIN_URL.'/'.CPT_TO_MAP_STORE_NAME; ?>/data/map.php"
 				title="<?php esc_attr_e( 'Title for Example Link Button' ); ?>"
 			><?php _e('Test Map', 'cpt-to-map-store'); ?></a>
 		</p>

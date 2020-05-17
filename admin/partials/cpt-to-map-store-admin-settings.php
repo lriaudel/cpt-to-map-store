@@ -181,7 +181,7 @@
 								id="template-popup"
 								name="template-popup"
 								cols="80" rows="6"
-								class="all-"><?php echo mysql_to_textarea( $options['template-popup'] ); ?></textarea>
+								class="all-"><?php echo cpt_to_map_store_mysql_to_textarea( $options['template-popup'] ); ?></textarea>
 							</p>						
 							<p class="description" id="template-popup-description"><?php _e("You can customized the popup marker with any fields of the Post Type." , 'cpt-to-map-store'); ?></p>
 							
