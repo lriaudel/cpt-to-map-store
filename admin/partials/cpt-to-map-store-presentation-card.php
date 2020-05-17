@@ -12,14 +12,6 @@
 
 		<h2 class="title"><?php _e('Map', 'cpt-to-map-store'); ?></h2>
 		<p><?php _e('Shortcode : ', 'cpt-to-map-store'); ?><strong><?php echo '[' . Cpt_To_Map_Store_Public::$shortcode_name . ']'; ?></p>
-		<p>
-			<a
-				class="button-secondary"
-				target="_blank"
-				href="<?php echo WP_PLUGIN_URL.'/'.CPT_TO_MAP_STORE_NAME; ?>/data/map.php"
-				title="<?php esc_attr_e( 'Title for Example Link Button' ); ?>"
-			><?php _e('Test Map', 'cpt-to-map-store'); ?></a>
-		</p>
 
 		<hr>
 		<p>

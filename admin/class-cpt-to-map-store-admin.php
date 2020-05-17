@@ -122,7 +122,7 @@ class Cpt_To_Map_Store_Admin {
 				$options['longitude'] = 		( isset($_POST['longitude']) ) 			? sanitize_key ( $_POST['longitude'] ) : '';
 				$options['description'] = 		( isset($_POST['description']) ) 		? sanitize_key( $_POST['description'] ) : '';
 				$options['active-template'] = 	( isset($_POST['active-template']) ) 	? sanitize_key( $_POST['active-template'] ) : '';
-				$options['template-popup'] = 	( isset($_POST['template-popup']) ) 	? esc_js( trim($_POST['template-popup']) ) : '';
+				$options['template-popup'] = 	( isset($_POST['template-popup']) ) 	? esc_html( trim($_POST['template-popup']) ) : '';
 
 				$options['template-popup'] = 	htmlentities( $options['template-popup'] );
 				//var_dump( $options );
