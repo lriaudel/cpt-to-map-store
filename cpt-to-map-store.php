@@ -1,22 +1,12 @@
 <?php
-
 /**
- * The plugin bootstrap file
- *
- * This file is read by WordPress to generate the plugin information in the plugin
- * admin area. This file also includes all of the dependencies used by the plugin,
- * registers the activation and deactivation functions, and defines a function
- * that starts the plugin.
- *
- * @link              riaudel.net
- * @since             1.0.0
  * @package           Cpt_To_Map_Store
  *
  * @wordpress-plugin
  * Plugin Name:       CPT to Map Store
  * Plugin URI:        https://github.com/lriaudel/cpt-to-map-store
- * Description:       This is a short description of what the plugin does. It's displayed in the WordPress admin area.
- * Version:           1.0.0
+ * Description:       An another Store Locator on WordPress but with OpenStreetMap &amp; Leaflet
+ * Version:           1.0.1
  * Author:            Ludovic RIAUDEL
  * Author URI:        https://riaudel.net
  * License:           GPL-2.0+
@@ -30,7 +20,7 @@ if ( ! defined( 'WPINC' ) ) {
 	die;
 }
 
-define( 'CPT_TO_MAP_STORE_VERSION', '1.0.0' );
+define( 'CPT_TO_MAP_STORE_VERSION', '1.0.1' );
 define( 'CPT_TO_MAP_STORE_NAME', 'cpt-to-map-store');
 define('CPT_TO_MAP_STORE_SETTING', 'cpt_to_map_store_settings');
 

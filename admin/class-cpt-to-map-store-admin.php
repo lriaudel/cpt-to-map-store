@@ -77,8 +77,37 @@ class Cpt_To_Map_Store_Admin {
 		// Add un link in settings menu
 		add_action('admin_menu', array( $this, 'add_general_settings_link' ) );
 
-		$this->enqueue_scripts();
-		$this->enqueue_styles();
+		// Add scripts and styles
+		//$this->enqueue_scripts();
+		//$this->enqueue_styles();
+		add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_scripts' ) );
+		add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_styles' ) );
+
+	}
+	
+	/**
+	 * Register the stylesheets for the admin area.
+	 *
+	 * @since    1.0.0
+	 */
+	public function enqueue_styles() {
+		global $page;
+
+		if ( isset( $_GET['page'] ) && $_GET['page'] == Cpt_To_Map_Store::$id_setting_page )
+			wp_enqueue_style( $this->plugin_name, WP_PLUGIN_URL.'/'.CPT_TO_MAP_STORE_NAME.'/assets/css/admin.css', array(), $this->version, 'all' );
+
+	}
+
+	/**
+	 * Register the JavaScript for the admin area.
+	 *
+	 * @since    1.0.0
+	 */
+	public function enqueue_scripts() {
+		global $page;
+
+		if ( isset( $_GET['page'] ) && $_GET['page'] == Cpt_To_Map_Store::$id_setting_page )
+			wp_enqueue_script( $this->plugin_name, WP_PLUGIN_URL.'/'.CPT_TO_MAP_STORE_NAME.'/assets/js/admin.js', array( 'jquery' ), $this->version, true );
 
 	}
 
@@ -113,7 +142,7 @@ class Cpt_To_Map_Store_Admin {
 
 		if ( $_GET['page'] == Cpt_To_Map_Store::$id_setting_page ) {
 
-			if ( 'update' == $_REQUEST['action'] ) {
+			if ( isset($_REQUEST['action']) && 'update' == $_REQUEST['action'] ) {
 
 				//var_dump($_REQUEST);
 				$options['geo_post_type'] = 	( isset($_POST['geo_post_type']) ) 		? sanitize_key( $_POST['geo_post_type'] ) : '';
@@ -198,7 +227,7 @@ class Cpt_To_Map_Store_Admin {
 		}
 		
 		// filter
-		$post_types = apply_filters('cpt_to_map_store_get_post_types', $post_types, $args);
+		$post_types = apply_filters( 'cpt_to_map_store_get_post_types', $post_types );
 		
 		// return
 		return $post_types;
@@ -259,32 +288,6 @@ class Cpt_To_Map_Store_Admin {
 		<?php endforeach; ?>
 		</h2>
 		<?php
-	}
-
-	/**
-	 * Register the stylesheets for the admin area.
-	 *
-	 * @since    1.0.0
-	 */
-	public function enqueue_styles() {
-		global $page;
-
-		if ( isset( $_GET['page'] ) && $_GET['page'] == Cpt_To_Map_Store::$id_setting_page )
-			wp_enqueue_style( $this->plugin_name, WP_PLUGIN_URL.'/'.CPT_TO_MAP_STORE_NAME.'/assets/css/admin.css', array(), $this->version, 'all' );
-
-	}
-
-	/**
-	 * Register the JavaScript for the admin area.
-	 *
-	 * @since    1.0.0
-	 */
-	public function enqueue_scripts() {
-		global $page;
-
-		if ( isset( $_GET['page'] ) && $_GET['page'] == Cpt_To_Map_Store::$id_setting_page )
-			wp_enqueue_script( $this->plugin_name, WP_PLUGIN_URL.'/'.CPT_TO_MAP_STORE_NAME.'/assets/js/admin.js', array( 'jquery' ), $this->version, true );
-
 	}
 
 }

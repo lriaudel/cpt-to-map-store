@@ -57,7 +57,8 @@ class Cpt_To_Map_Store_Public {
 		$this->plugin_name = $class_cpt_to_map_store->get_plugin_name();
 		$this->version = $class_cpt_to_map_store->get_version();
 
-		$this->register_script_and_style();
+		// Add scripts and styles
+		add_action( 'admin_enqueue_scripts', array( $this, 'register_script_and_style' ) );
 
 		add_shortcode( self::$shortcode_name, array( $this, 'create_map' ) );
 	}

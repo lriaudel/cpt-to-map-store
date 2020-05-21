@@ -18,23 +18,20 @@ The plugin allows to :
 1. Generate a [GEOJson](https://en.wikipedia.org/wiki/GeoJSON) feed from coordinates recorded in the sample posts.
 2. Display this feed on a map with a shortcode.
 
-## Fonctionality
+## Features
 
 * Mapping from a Post Type to generate a GeoJson feed of all posts.
 * Exposure this Geojson feeds on the WordPress Rest-API
 * Possibility to make a template for the map markers popup
 * Coordinate reading compatibility for :
     * a text field
-    * an ACF Google Map field (coming soon)
+    * an ACF Google Map field
     * an ACF field for the [ACF OpenStreetMap Fields](https://wordpress.org/plugins/acf-openstreetmap-field/) extension 
 * Displaying a map by shortcode of all points.
 
 == Installation ==
 
 This section describes how to install the plugin and get it working.
-
-e.g.
-
 1. Upload `cpt-to-map-store.php` to the `/wp-content/plugins/` directory
 2. Activate the plugin through the 'Plugins' menu in WordPress
 3. In admin, Settings > CPT to Map Store
@@ -43,8 +40,8 @@ e.g.
 
 = What are the requirements? =
 
-Have a Post Type with Latitide and Longitude meta fields.
-And add a custom fields (https://wordpress.org/support/article/custom-fields/, ACF plugin, Pods or others...)
+* Have a Post Type with Latitide and Longitude meta fields.
+* And add a custom fields (https://wordpress.org/support/article/custom-fields/, ACF plugin, Pods or others...)
 
 == Screenshots ==
 
@@ -55,7 +52,12 @@ And add a custom fields (https://wordpress.org/support/article/custom-fields/, A
 
 == Changelog ==
 
-= 1.0 =
+= 1.0.1 =
+* Fix enqueue scripts and styles
+* Fix isset var
+* Add translate terms
+
+= 1.0.0 =
 * initial
 
 == Upgrade Notice ==
