@@ -60,10 +60,7 @@ This section describes how to install the plugin and get it working.
 = 1.0.0 =
 * initial
 
-== Upgrade Notice ==
-Nothing
-
-== Arbitrary section ==
-Nothing to say!
+== Information importante ! ==
+Have fun
 
 ==
