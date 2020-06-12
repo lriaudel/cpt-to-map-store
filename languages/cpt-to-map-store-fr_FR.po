@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: CPT to Map Store\n"
-"POT-Creation-Date: 2020-05-14 23:23+0200\n"
-"PO-Revision-Date: 2020-05-14 23:41+0200\n"
+"POT-Creation-Date: 2020-05-21 23:52+0200\n"
+"PO-Revision-Date: 2020-05-21 23:52+0200\n"
 "Last-Translator: madvic <madvic@gmail.com>\n"
 "Language-Team: lriaudel\n"
 "Language: fr\n"
@@ -15,21 +15,21 @@ msgstr ""
 "X-Poedit-KeywordsList: __;_e\n"
 "X-Poedit-SearchPath-0: .\n"
 
-#: admin/class-cpt-to-map-store-admin.php:93
-#: admin/class-cpt-to-map-store-admin.php:94
+#: admin/class-cpt-to-map-store-admin.php:122
+#: admin/class-cpt-to-map-store-admin.php:123
 msgid "CPT to Map Store"
 msgstr "CPT to Map Store"
 
-#: admin/class-cpt-to-map-store-admin.php:140
+#: admin/class-cpt-to-map-store-admin.php:168
 msgid "Settings saved!"
 msgstr "Paramètres sauvegardés"
 
-#: admin/class-cpt-to-map-store-admin.php:250
+#: admin/class-cpt-to-map-store-admin.php:278
 msgid "Custom Post Type"
 msgstr "Custom Post Type"
 
-#: admin/class-cpt-to-map-store-admin.php:250
-#: admin/partials/cpt-to-map-store-presentation-card.php:16
+#: admin/class-cpt-to-map-store-admin.php:278
+#: admin/partials/cpt-to-map-store-presentation-card.php:13
 msgid "Map"
 msgstr "Carte"
 
@@ -60,7 +60,7 @@ msgid ""
 msgstr ""
 "Choisissez un type de post. Si rien ne vous ai proposé dans les listes "
 "déroulantes dans la zone \"Mapping\" ci-dessous, cela veux sans doute dire "
-"que les champs n'ont pas été créé ou bien ce sont des champs privés "
+"que les champs n'ont pas été créés ou bien ce sont des champs privés "
 "(commençant par _`)."
 
 #: admin/partials/cpt-to-map-store-admin-settings.php:52
@@ -200,21 +200,28 @@ msgstr ""
 msgid "JSON Feed urls"
 msgstr "Urls du flux JSON"
 
-#: admin/partials/cpt-to-map-store-presentation-card.php:17
+#: admin/partials/cpt-to-map-store-presentation-card.php:14
 msgid "Shortcode : "
 msgstr "Shortcode : "
 
-#: admin/partials/cpt-to-map-store-presentation-card.php:24
-msgid "Test Map"
-msgstr "Tester la carte"
-
-#: admin/partials/cpt-to-map-store-presentation-card.php:31
+#: admin/partials/cpt-to-map-store-presentation-card.php:20
 msgid "You could help on the repository:"
 msgstr "Vous pouvez aider au développement sur GitHub :"
 
-#: admin/partials/cpt-to-map-store-presentation-card.php:35
+#: admin/partials/cpt-to-map-store-presentation-card.php:24
 msgid "Donate"
 msgstr "Donnez"
+
+#: cpt-to-map-store.php:58
+msgid ""
+"Sorry, the slug and class used for the plugin CPT to Map Store is already "
+"used! The plugin is not launch."
+msgstr ""
+"Désolé, le slug et la classe utilisées pour le plugin CPT to Map Store sont "
+"déjà utilisées ! Le plugin n'est pas activé."
+
+#~ msgid "Test Map"
+#~ msgstr "Tester la carte"
 
 #~ msgid ""
 #~ "You can customized the popup marker with any information of the Custom "

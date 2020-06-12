@@ -1,5 +1,5 @@
 # Custom Post Type to Map Store
-An another Store Locator on WordPress but with OpenStreetMap &amp; Leaflet
+An another Store Locator on WordPress but with OpenStreetMap &amp; Leaflet and Meta Fields
 
 The plugin allows to :
 
@@ -13,7 +13,7 @@ The plugin allows to :
 - Possibility to make a template for the map markers popup
 - Coordinate reading compatibility for :
     - a text field
-    - an ACF Google Map field (coming soon)
+    - an ACF Google Map field
     - an ACF field for the [ACF OpenStreetMap Field](https://wordpress.org/plugins/acf-openstreetmap-field/) extension
 - Displaying a map by shortcode of all points.
 

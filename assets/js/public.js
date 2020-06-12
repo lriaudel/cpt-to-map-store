@@ -23,16 +23,16 @@ L.tileLayer('//{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
 var geojsonLayer = L.geoJson(json, {
 
 	onEachFeature: function (feature, layer) {
-	
+		var popup;
+
 		if( '' !== feature.properties.bindPopup_content ){
-			popup = htmlDecode(feature.properties.bindPopup_content);
+			popup = feature.properties.bindPopup_content;
 		}
 		else {
 			popup = '<strong>' + feature.properties.name + '</strong><br>' + feature.properties.description;
 		}
-		
+	
 		layer.bindPopup( popup );
-
 	}
 
 }).addTo(map);
