@@ -90,7 +90,7 @@ class Cpt_To_Map_Store {
 		if( is_admin() ) 
 			$this->define_admin_hooks();
 
-		if( true || !is_admin() ) 
+		if( true || !is_admin() ) // public call in admin
 			$this->define_public_hooks();
 
 		$this->register_api_rest_route();

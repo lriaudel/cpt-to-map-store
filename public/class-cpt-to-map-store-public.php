@@ -25,23 +25,30 @@ class Cpt_To_Map_Store_Public {
 	/**
 	 * The ID of this plugin.
 	 *
-	 * @since    1.0.0
-	 * @access   private
-	 * @var      string    $plugin_name    The ID of this plugin.
+	 * @since	1.0.0
+	 * @access	private
+	 * @var		string		$plugin_name    The ID of this plugin.
 	 */
 	private $plugin_name;
 
 	/**
 	 * The version of this plugin.
 	 *
-	 * @since    1.0.0
-	 * @access   private
-	 * @var      string    $version    The current version of this plugin.
+	 * @since	1.0.0
+	 * @access	private
+	 * @var		string		$version    The current version of this plugin.
 	 */
 	private $version;
 
 	private $class_cpt_to_map_store;
 
+	/**
+	 * Shortcode name
+	 * 
+	 * @since	1.0.0
+	 * @access	public
+	 * @var		string		$shortcode_name		Name of the shortcode
+	 */
 	public static $shortcode_name = 'map_store';
 
 	/**
@@ -58,11 +65,13 @@ class Cpt_To_Map_Store_Public {
 		$this->version = $class_cpt_to_map_store->get_version();
 
 		// Add scripts and styles
-		add_action( 'admin_enqueue_scripts', array( $this, 'register_script_and_style' ) );
+		add_action( 'wp_enqueue_scripts', array( $this, 'register_script_and_style' ) );
+		add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_script_and_styles' ) );
+
 
 		add_shortcode( self::$shortcode_name, array( $this, 'create_map' ) );
-	}
 
+	}
 
 	public function register_script_and_style() {
 
@@ -83,8 +92,10 @@ class Cpt_To_Map_Store_Public {
 	}
 
 	public function enqueue_script_and_styles() {
+		global $pagenow;
+		
 		if( $pagenow == 'edit.php' ) {
-			wp_enqueue_style( 'map-store' );
+			wp_enqueue_style( 'leaflet' );
 			wp_enqueue_script( 'map-store' );
 		}
 	}
@@ -92,8 +103,6 @@ class Cpt_To_Map_Store_Public {
 	public function get_custom_css(){
 
 		$options = Cpt_To_Map_Store::get_option();
-
-		//var_dump($options);
 
 		$map_width = ( !empty($options['map-width']) ) ? $options['map-width'] : '100%';
 		$map_height = ( !empty($options['map-height']) ) ? $options['map-height'] : '500px';
@@ -114,17 +123,15 @@ class Cpt_To_Map_Store_Public {
 
 	}
 
-
 	public function create_map() {
 
 		ob_start();
 
-		$custom_map_store = $this->get_custom_css();
+		$this->get_custom_css();
 
 		wp_enqueue_script( 'map-store' );
-
-		wp_enqueue_style('map-store');
-		wp_add_inline_style( 'custom-map-store', $custom_map_store );
+		
+		wp_enqueue_style('leaflet');
 
 		wp_localize_script( 'map-store', 'json', $this->class_cpt_to_map_store->create_GEO_Object() );
 		

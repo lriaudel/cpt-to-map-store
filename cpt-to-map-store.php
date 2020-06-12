@@ -1,12 +1,14 @@
 <?php
 /**
+ * CPT to Map Store
+ *
  * @package           Cpt_To_Map_Store
  *
  * @wordpress-plugin
  * Plugin Name:       CPT to Map Store
  * Plugin URI:        https://github.com/lriaudel/cpt-to-map-store
- * Description:       An another Store Locator on WordPress but with OpenStreetMap &amp; Leaflet
- * Version:           1.0.1
+ * Description:       An another Store Locator on WordPress but with OpenStreetMap &amp; Leaflet and Meta Fields
+ * Version:           1.0.2
  * Author:            Ludovic RIAUDEL
  * Author URI:        https://riaudel.net
  * License:           GPL-2.0+
@@ -20,7 +22,7 @@ if ( ! defined( 'WPINC' ) ) {
 	die;
 }
 
-define( 'CPT_TO_MAP_STORE_VERSION', '1.0.1' );
+define( 'CPT_TO_MAP_STORE_VERSION', '1.0.2' );
 define( 'CPT_TO_MAP_STORE_NAME', 'cpt-to-map-store');
 define('CPT_TO_MAP_STORE_SETTING', 'cpt_to_map_store_settings');
 

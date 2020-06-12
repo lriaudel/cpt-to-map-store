@@ -2,14 +2,14 @@
 Contributors: lriaudel, madvic
 Donate link: https://www.paypal.me/lriaudel
 Tags: map, geojson, openstreetmap, open street map, store locator, locator, store, cpt, custom post type, post type, posttype, json, free
-Requires at least: 3.0.1
+Requires at least: 4.0
 Tested up to: 5.4
-Stable tag: 5.4
+Stable tag: 1.0.2
 Requires PHP: 7.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-An another Store Locator on WordPress but with OpenStreetMap &amp; Leaflet
+An another Store Locator on WordPress but with OpenStreetMap &amp; Leaflet and Meta Fields
 
 == Description ==
 
@@ -52,6 +52,11 @@ This section describes how to install the plugin and get it working.
 
 == Changelog ==
 
+= 1.0.2 =
+* Fix error in engueue scripts in class-cpt-to-map-store-public.php
+* Fix Notice in functions.php
+* Fix js error in public.js
+
 = 1.0.1 =
 * Fix enqueue scripts and styles
 * Fix isset var
@@ -60,7 +65,7 @@ This section describes how to install the plugin and get it working.
 = 1.0.0 =
 * initial
 
-== Information importante ! ==
+== Important Information ! ==
 Have fun
 
 ==

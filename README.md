@@ -1,5 +1,5 @@
 # Custom Post Type to Map Store
-An another Store Locator on WordPress but with OpenStreetMap &amp; Leaflet
+An another Store Locator on WordPress but with OpenStreetMap &amp; Leaflet and Meta Fields
 
 The plugin allows to :
 
