@@ -401,6 +401,15 @@ class Cpt_To_Map_Store {
 
 			if ( $active_bindPopup ) {
 				$bindPopup_content = $this->bindPopup_content( $cpt_metas[ $cpt->ID ] );
+
+				/**
+				 * Filter of the content to display on the marker popup
+				 *
+				 * @since	1.0.3
+				 * @param	string	$bindPopup_content  The content to display in the marker popup
+				 * @param	int		$cpt->ID	The post_id of the custom post type used for the map
+				 */
+				$bindPopup_content = apply_filters( 'cpt_to_map_store_bindPopup_content', $bindPopup_content, $cpt->ID );
 			}
 
 			//var_dump($latitude , $longitude);
