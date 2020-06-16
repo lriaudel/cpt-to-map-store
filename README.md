@@ -3,7 +3,9 @@ An another Store Locator on WordPress but with OpenStreetMap &amp; Leaflet and M
 
 WordPress repository: (https://wordpress.org/plugins/cpt-to-map-store/)
 
-The plugin allows to :
+-----------------------
+
+**The plugin allows to :**
 
 1. Generate a [GEOJson](https://en.wikipedia.org/wiki/GeoJSON) feed from coordinates recorded in the sample posts.
 2. Display this feed on a map with a shortcode.
