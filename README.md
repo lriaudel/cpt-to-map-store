@@ -1,6 +1,8 @@
 # Custom Post Type to Map Store
 An another Store Locator on WordPress but with OpenStreetMap &amp; Leaflet and Meta Fields
 
+WordPress repository: (https://wordpress.org/plugins/cpt-to-map-store/)
+
 The plugin allows to :
 
 1. Generate a [GEOJson](https://en.wikipedia.org/wiki/GeoJSON) feed from coordinates recorded in the sample posts.
@@ -16,6 +18,20 @@ The plugin allows to :
     - an ACF Google Map field
     - an ACF field for the [ACF OpenStreetMap Field](https://wordpress.org/plugins/acf-openstreetmap-field/) extension
 - Displaying a map by shortcode of all points.
+
+## Hook
+
+* The marker content
+You can customize more finely the marker popup content.
+
+Example:
+```
+function bindPopup_content_filter( $bindPopup_content, $post_id ) {
+	return "Yeahhhhh";
+}
+
+add_filter( 'cpt_to_map_store_bindPopup_content', 'bindPopup_content_filter', 10, 2 );
+```
 
 ## Screenshot
 

@@ -18,7 +18,7 @@ The plugin allows to :
 1. Generate a [GEOJson](https://en.wikipedia.org/wiki/GeoJSON) feed from coordinates recorded in the sample posts.
 2. Display this feed on a map with a shortcode.
 
-= Features =
+### Features
 
 * Mapping from a Post Type to generate a GeoJson feed of all posts.
 * Exposure this Geojson feeds on the WordPress Rest-API
@@ -29,13 +29,13 @@ The plugin allows to :
     * an ACF field for the [ACF OpenStreetMap Fields](https://wordpress.org/plugins/acf-openstreetmap-field/) extension 
 * Displaying a map by shortcode of all points.
 
-= Hook =
+### Hook
 
 * The marker content
 You can customize more finely the marker popup content.
 
-Exemple:
-```
+Example:
+`
 <?php
 function bindPopup_content_filter( $bindPopup_content, $post_id ) {
 	return "Yeahhhhh";
@@ -43,7 +43,7 @@ function bindPopup_content_filter( $bindPopup_content, $post_id ) {
 
 add_filter( 'cpt_to_map_store_bindPopup_content', 'bindPopup_content_filter', 10, 2 );
 ?>
-```
+`
 
 == Installation ==
 
