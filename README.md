@@ -20,6 +20,7 @@ WordPress repository: (https://wordpress.org/plugins/cpt-to-map-store/)
     - an ACF Google Map field
     - an ACF field for the [ACF OpenStreetMap Field](https://wordpress.org/plugins/acf-openstreetmap-field/) extension
 - Displaying a map by shortcode of all points.
+- Open Street Map put in cache
 
 ## Hook
 
@@ -34,6 +35,9 @@ function bindPopup_content_filter( $bindPopup_content, $post_id ) {
 
 add_filter( 'cpt_to_map_store_bindPopup_content', 'bindPopup_content_filter', 10, 2 );
 ```
+
+## Cache
+This plugin works with [Tiles Proxy for OpenStreetMap](https://wordpress.org/plugins/osm-tiles-proxy/) for put in cache the map tiles.
 
 ## Screenshot
 

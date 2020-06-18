@@ -60,3 +60,19 @@
 .card ul {
 	list-style: disc;
 }
+.spotlight {
+	background-color: gold;
+	padding: 0.5em 1em;
+	border: 1px grey dotted;
+	margin: 2rem 0;
+}
+
+.donate {
+	color:black;
+	background-color:orange;
+	border-radius:1em;
+	padding:5px 15px;
+	font-weight:bold;
+	box-shadow: 2px 2px 0px #aaa; 
+	line-height: 2rem;
+}

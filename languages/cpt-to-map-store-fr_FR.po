@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: CPT to Map Store\n"
-"POT-Creation-Date: 2020-05-21 23:52+0200\n"
-"PO-Revision-Date: 2020-05-21 23:52+0200\n"
+"POT-Creation-Date: 2020-06-18 23:56+0200\n"
+"PO-Revision-Date: 2020-06-18 23:56+0200\n"
 "Last-Translator: madvic <madvic@gmail.com>\n"
 "Language-Team: lriaudel\n"
 "Language: fr\n"
@@ -205,20 +205,66 @@ msgid "Shortcode : "
 msgstr "Shortcode : "
 
 #: admin/partials/cpt-to-map-store-presentation-card.php:20
+msgid "Putting a cache at OSM!"
+msgstr "Mettez un cache à OSM !"
+
+#: admin/partials/cpt-to-map-store-presentation-card.php:21
+msgid ""
+"This plugin works very well with the plugin <a href=\"http://chanvre-mellois."
+"local/wp-admin/plugin-install.php?tab=plugin-information&amp;plugin=osm-"
+"tiles-proxy&amp;TB_iframe=true&amp;width=772&amp;height=356\" class="
+"\"thickbox open-plugin-details-modal\">Tiles Proxy for OpenStreetMap</a> to "
+"cache map tiles. It's free."
+msgstr ""
+"Cette extension fonctionne très bien avec l'extension <a href=\"http://"
+"chanvre-mellois.local/wp-admin/plugin-install.php?tab=plugin-information&amp;"
+"plugin=osm-tiles-proxy&amp;TB_iframe=true&amp;width=772&amp;height=356\" "
+"class=\"thickbox open-plugin-details-modal\">Tiles Proxy for OpenStreetMap</"
+"a> pour mettre en cache les tuiles de la carte. C'est gratuit."
+
+#: admin/partials/cpt-to-map-store-presentation-card.php:30
 msgid "You could help on the repository:"
 msgstr "Vous pouvez aider au développement sur GitHub :"
 
-#: admin/partials/cpt-to-map-store-presentation-card.php:24
+#: admin/partials/cpt-to-map-store-presentation-card.php:35
 msgid "Donate"
 msgstr "Donnez"
 
-#: cpt-to-map-store.php:58
+#: cpt-to-map-store.php:60
 msgid ""
 "Sorry, the slug and class used for the plugin CPT to Map Store is already "
 "used! The plugin is not launch."
 msgstr ""
 "Désolé, le slug et la classe utilisées pour le plugin CPT to Map Store sont "
 "déjà utilisées ! Le plugin n'est pas activé."
+
+#~ msgid ""
+#~ "This plugin works very well with the plugin \n"
+#~ "\t\t\t<a href=\"http://chanvre-mellois.local/wp-admin/plugin-install.php?"
+#~ "tab=plugin-information&amp;plugin=osm-tiles-proxy&amp;TB_iframe=true&amp;"
+#~ "width=772&amp;height=356\" class=\"thickbox open-plugin-details-modal"
+#~ "\">Tiles Proxy for OpenStreetMap</a> to cache map tiles. It's free."
+#~ msgstr ""
+#~ "Cette extension fonctionne très bien avec l'extension <a target="
+#~ "\"wporg_plugins\" href=\"https://wordpress.org/plugins/osm-tiles-proxy/"
+#~ "\">Tiles Proxy for OpenStreetMap</a> pour mettre en cache les tuiles de "
+#~ "la carte. C'est gratuit."
+
+#~ msgid ""
+#~ "This plugin works very well with the plugin <a target=\"wporg_plugins\" "
+#~ "href=\"https://wordpress.org/plugins/osm-tiles-proxy/\">Tiles Proxy for "
+#~ "OpenStreetMap</a> to cache map tiles. It's free."
+#~ msgstr ""
+#~ "Cette extension fonctionne très bien avec l'extension <a target="
+#~ "\"wporg_plugins\" href=\"https://wordpress.org/plugins/osm-tiles-proxy/"
+#~ "\">Tiles Proxy for OpenStreetMap</a> pour mettre en cache les tuiles de "
+#~ "la carte. C'est gratuit."
+
+#~ msgid ""
+#~ "This plugin works very well with the plugin <a href=\"https://wordpress."
+#~ "org/plugins/osm-tiles-proxy/\">Tiles Proxy for OpenStreetMap</a> to cache "
+#~ "map tiles. It's free."
+#~ msgstr "Cette extension fonctionne très bien avec l'extension "
 
 #~ msgid "Test Map"
 #~ msgstr "Tester la carte"

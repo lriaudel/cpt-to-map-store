@@ -1,10 +1,10 @@
 === Custom Post Type to Map Store ===
 Contributors: lriaudel, madvic
 Donate link: https://www.paypal.me/lriaudel
-Tags: map, geojson, openstreetmap, open street map, store locator, locator, store, cpt, custom post type, post type, posttype, json, free
+Tags: map, geojson, openstreetmap, open street map, store locator, locator, store, cpt, custom post type, post type, posttype, json, free, osm cache
 Requires at least: 4.0
 Tested up to: 5.4
-Stable tag: 1.0.3
+Stable tag: 1.1.0
 Requires PHP: 7.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -28,6 +28,7 @@ The plugin allows to :
     * an ACF Google Map field
     * an ACF field for the [ACF OpenStreetMap Fields](https://wordpress.org/plugins/acf-openstreetmap-field/) extension 
 * Displaying a map by shortcode of all points.
+* Open Street Map put in cache
 
 ### Hook
 
@@ -44,6 +45,9 @@ function bindPopup_content_filter( $bindPopup_content, $post_id ) {
 add_filter( 'cpt_to_map_store_bindPopup_content', 'bindPopup_content_filter', 10, 2 );
 ?>
 `
+
+### Cache
+This plugin works with [Tiles Proxy for OpenStreetMap](https://wordpress.org/plugins/osm-tiles-proxy/) for put in cache the map tiles.
 
 == Installation ==
 
@@ -67,6 +71,9 @@ This section describes how to install the plugin and get it working.
 4. screenshot-4.png
 
 == Changelog ==
+
+= 1.1.0 =
+* Add the compatibility with the plugin "Tiles Proxy for OpenStreetMap" for put in cache the map tiles.
 
 = 1.0.3 =
 * Add the marker content filter `cpt_to_map_store_bindPopup_content`

@@ -52,6 +52,15 @@ class Cpt_To_Map_Store_Public {
 	public static $shortcode_name = 'map_store';
 
 	/**
+	 * Open Street Map Tile Serve
+	 * 
+	 * @since	1.1.0
+	 * @access	public
+	 * @var		string
+	 */
+	public $osm_tiles_url = '//{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
+
+	/**
 	 * Initialize the class and set its properties.
 	 *
 	 * @since    1.0.0
@@ -73,15 +82,39 @@ class Cpt_To_Map_Store_Public {
 
 	}
 
+	/**
+	 * Get var osm_tiles_url
+	 * 
+	 * @since 	1.1.0
+	 * @return	string	The OSM tile server URL
+	 */
+	public function get_osm_tiles_url() {
+		/**
+		 * Filter for get local cache of osm_tiles_proxy
+		 */
+		 return apply_filters( 'osm_tiles_proxy_get_proxy_url', $this->osm_tiles_url );
+	}
+
+	/**
+	 * Register script and style
+	 * 
+	 * @since	1.0.0
+	 * @since	1.1.0	Add filter for osm_tiles_proxy
+	 * @return	void
+	 */
 	public function register_script_and_style() {
 
-		// JS OSM Leaflet
+		/**
+		 * Leaflet 
+		 */
 		wp_register_script( 'leaflet', WP_PLUGIN_URL.'/'.CPT_TO_MAP_STORE_NAME.'/assets/lib/leaflet/leaflet.js', array(), $this->version, true );
+		wp_register_style( 'leaflet', WP_PLUGIN_URL.'/'.CPT_TO_MAP_STORE_NAME.'/assets/lib/leaflet/leaflet.min.css', array(), $this->version, 'all' );
+
+		/**
+		 * ESRI Leaflet 
+		 */
 		wp_register_script( 'esri-leaflet', WP_PLUGIN_URL.'/'.CPT_TO_MAP_STORE_NAME.'/assets/lib/leaflet-esri/esri-leaflet.js', array('leaflet'), $this->version, true );
 		wp_register_script( 'leaflet-geocoder', WP_PLUGIN_URL.'/'.CPT_TO_MAP_STORE_NAME.'/assets/lib/leaflet-geocoder/esri-leaflet-geocoder.js', array('esri-leaflet'), $this->version, true );
-
-		// CSS OSM Leaflet
-		wp_register_style( 'leaflet', WP_PLUGIN_URL.'/'.CPT_TO_MAP_STORE_NAME.'/assets/lib/leaflet/leaflet.min.css', array(), $this->version, 'all' );
 
 		// JS
 		wp_register_script( 'map-store', WP_PLUGIN_URL.'/'.CPT_TO_MAP_STORE_NAME.'/assets/js/public.js', array('leaflet'), $this->version, true );
@@ -100,6 +133,12 @@ class Cpt_To_Map_Store_Public {
 		}
 	}
 
+	/**
+	 * Get CSS for the shortcode
+	 * 
+	 * @since	1.0.0
+	 * @return	string	CSS code for map
+	 */
 	public function get_custom_css(){
 
 		$options = Cpt_To_Map_Store::get_option();
@@ -123,6 +162,12 @@ class Cpt_To_Map_Store_Public {
 
 	}
 
+	/**
+	 * Create the OSM map of the CPT
+	 * 
+	 * @since	1.0.0
+	 * @return	string	HTML/JS OSM Map
+	 */
 	public function create_map() {
 
 		ob_start();
@@ -133,6 +178,14 @@ class Cpt_To_Map_Store_Public {
 		
 		wp_enqueue_style('leaflet');
 
+		/**
+		 * Add the OSM server tile var
+		 */
+		wp_localize_script( 'map-store', 'osm_tiles_url', $this->get_osm_tiles_url() );
+
+		/**
+		 * Add the GEOjson Object
+		 */
 		wp_localize_script( 'map-store', 'json', $this->class_cpt_to_map_store->create_GEO_Object() );
 		
 		?>

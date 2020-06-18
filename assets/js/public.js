@@ -14,7 +14,7 @@ function htmlDecode( encodedString ) {
 var map = L.map('map_cpt_to_map_store');
 var popup;
 
-L.tileLayer('//{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+L.tileLayer( osm_tiles_url , {
 		attribution: 'Map data © <a href="https://openstreetmap.org">OpenStreetMap</a> contributors',
 		minZoom: 1,
 		maxZoom: 21,
