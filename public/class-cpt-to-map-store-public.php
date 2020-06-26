@@ -43,13 +43,22 @@ class Cpt_To_Map_Store_Public {
 	private $class_cpt_to_map_store;
 
 	/**
-	 * Shortcode name
+	 * General map Shortcode name
 	 * 
 	 * @since	1.0.0
 	 * @access	public
-	 * @var		string		$shortcode_name		Name of the shortcode
+	 * @var		string		$shortcode_name		Name of the shortcode for all points
 	 */
-	public static $shortcode_name = 'map_store';
+	public static $general_shortcode_name = 'map_store';
+
+	/**
+	 * Point map Shortcode map
+	 * 
+	 * @since	1.2
+	 * @access	public
+	 * @var		string		$shortcode_name		Name of the shortcode for one point
+	 */
+	public static $post_shortcode_name = 'post_map_store';
 
 	/**
 	 * Open Street Map Tile Serve
@@ -61,11 +70,17 @@ class Cpt_To_Map_Store_Public {
 	public $osm_tiles_url = '//{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
 
 	/**
+	 * ID of the layer
+	 */
+	public $layer_id = 'map_cpt_to_map_store';
+
+	/**
 	 * Initialize the class and set its properties.
 	 *
-	 * @since    1.0.0
-	 * @param      string    $plugin_name       The name of the plugin.
-	 * @param      string    $version    The version of this plugin.
+	 * @since   1.0.0
+	 * @since	1.2.0		Add single map
+	 * @param	string		$plugin_name		The name of the plugin.
+	 * @param	string		$version    		The version of this plugin.
 	 */
 	public function __construct( $class_cpt_to_map_store ) {
 
@@ -78,7 +93,9 @@ class Cpt_To_Map_Store_Public {
 		add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_script_and_styles' ) );
 
 
-		add_shortcode( self::$shortcode_name, array( $this, 'create_map' ) );
+		add_shortcode( self::$general_shortcode_name, array( $this, 'create_map_store' ) );
+
+		add_shortcode( self::$post_shortcode_name, array( $this, 'create_post_map_store' ) );
 
 	}
 
@@ -137,11 +154,10 @@ class Cpt_To_Map_Store_Public {
 	 * Get CSS for the shortcode
 	 * 
 	 * @since	1.0.0
-	 * @return	string	CSS code for map
+	 * @var		$options		Plugins options
+	 * @return	string			CSS code for map
 	 */
-	public function get_custom_css(){
-
-		$options = Cpt_To_Map_Store::get_option();
+	public function get_custom_css( $options ){
 
 		$map_width = ( !empty($options['map-width']) ) ? $options['map-width'] : '100%';
 		$map_height = ( !empty($options['map-height']) ) ? $options['map-height'] : '500px';
@@ -151,8 +167,8 @@ class Cpt_To_Map_Store_Public {
 
 			<style>
 				#map_cpt_to_map_store {
-					width: <?php echo $map_width; ?>;
-					height: <?php echo $map_height; ?>;
+					width: <?php echo esc_attr($map_width); ?>;
+					height: <?php echo esc_attr($map_height); ?>;
 				}
 			</style>
 
@@ -163,43 +179,94 @@ class Cpt_To_Map_Store_Public {
 	}
 
 	/**
-	 * Create the OSM map of the CPT
+	 * Create the OSM map of one CPTs
 	 * 
-	 * @since	1.0.0
+	 * @since	1.2.0	Add for single map
 	 * @return	string	HTML/JS OSM Map
 	 */
-	public function create_map() {
+	public function create_post_map_store( $atts ){
+
+		if( isset( $atts ) && isset( $atts['id'] ) ) {
+
+			return $this->create_map_store( (int)$atts['id'] );
+		}
+		// if we don't have the id
+		else {
+
+			// get global ID
+			global $post ;
+
+			if( $post && isset($post->ID) ) {
+				return $this->create_map_store( $post->ID );
+			}
+			else {
+				return __('No ID found', 'cpt-to-map-store');
+			}
+
+		}
+
+	} // end create_post_map_store()
+
+	/**
+	 * Create the OSM map of the CPTs
+	 * 
+	 * @since	1.0.0
+	 * @since	1.2.0	Add single map
+	 * @return	string	HTML/JS OSM Map
+	 */
+	public function create_map_store( $id = null ) {
+
+		$request = null;
+
+		$div_id = $this->layer_id;
+
+		$options = Cpt_To_Map_Store::get_option();
+		$default_zoom = ( !empty($options['default_zoom']) ) ? $options['default_zoom'] : '8';
+
+		// If unique
+		if( is_int($id) ) {
+			$request['id'] = $id;
+		}
+		else {
+			$id = "";
+		}
 
 		ob_start();
 
-		$this->get_custom_css();
+		$this->get_custom_css( $options );
 
 		wp_enqueue_script( 'map-store' );
 		
 		wp_enqueue_style('leaflet');
 
+		$cpt_map_store_settings = array(
+			'div_id'			=> esc_attr( $div_id ),
+			'osm_tiles_url'		=> $this->get_osm_tiles_url(),
+			'defaultZoom'		=> esc_attr( $default_zoom )
+		);
+
 		/**
-		 * Add the OSM server tile var
+		 * Add default zoom for one marker
 		 */
-		wp_localize_script( 'map-store', 'osm_tiles_url', $this->get_osm_tiles_url() );
+		wp_localize_script( 'map-store', 'cpt_map_store_settings', $cpt_map_store_settings );
 
 		/**
 		 * Add the GEOjson Object
 		 */
-		wp_localize_script( 'map-store', 'json', $this->class_cpt_to_map_store->create_GEO_Object() );
-		
+		wp_localize_script( 'map-store', 'json', $this->class_cpt_to_map_store->create_GEO_Object( $request ) );
+	
 		?>
 
-			<div id="map_cpt_to_map_store"></div>
+		<div id="<?php echo $div_id; ?>" class="cpt_to_map_store <?php echo ($id != "") ? 'unique' : 'general'; ?>"></div>
 
 		<?php
 
 		$map = ob_get_contents();
 
 		ob_end_clean();
-
+		//echo $map;
 		return $map;
 
-	} // end create_map()
+	} // end create_map_store()
 
 }

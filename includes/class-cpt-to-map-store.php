@@ -163,13 +163,30 @@ class Cpt_To_Map_Store {
 	 */
 	private function register_api_rest_route() {
 
+		/**
+		 * All points
+		 */
 		add_action( 'rest_api_init', function () {
 			register_rest_route( self::$api_slug, self::get_option('geo_post_type'), array(
 			  'methods' => 'GET',
 			  'callback' => array($this, 'create_GEO_Object'),
 			) );
-		  } );
+		} );
 
+		/**
+		 * Post point
+		 */
+		add_action( 'rest_api_init', function () {
+			register_rest_route( self::$api_slug, self::get_option('geo_post_type').'/(?P<id>\d+)', array(
+			  'methods' => 'GET',
+			  'callback' => array($this, 'create_GEO_Object'),
+			  'args' => [
+					'id' => array( 'validate_callback' => function($param, $request, $key) {
+															return is_numeric( $param );
+														}),
+				],
+			) );
+		} );
 	}
 
 	/**
@@ -206,7 +223,7 @@ class Cpt_To_Map_Store {
 	 * @access	public
 	 * @return	object
 	 */
-	public function get_post_type_data() {
+	public function get_post_type_data( $post_id = null ) {
 
 		$args = array(
 			'post_type' => self::get_option('geo_post_type'),
@@ -214,8 +231,12 @@ class Cpt_To_Map_Store {
 			'post_status' => 'publish'
 		);
 		
+		if( $post_id ) {
+			$args['p'] = $post_id;
+		}
+
 		$my_query = new WP_Query( $args );
-		
+
 		return $my_query->posts;
 	}
 
@@ -372,10 +393,17 @@ class Cpt_To_Map_Store {
 	 * Return an associative array of all point, before to be transform in GEOJson
 	 * 
 	 * @since	1.0.0
+	 * @since	1.2.0	Add request by ID
 	 * @access	public
 	 * @return	mixed
 	 */
-	public function create_GEO_Object() {
+	public function create_GEO_Object( $request = null ) {
+
+		$post_id = null;
+
+		if ( isset($request) && isset($request['id']) ) {
+			$post_id = $request['id'];
+		}
 
 		$latitude = '';
 		$longitude = '';
@@ -384,7 +412,17 @@ class Cpt_To_Map_Store {
 
 		$active_bindPopup = ( empty( self::get_option('active-template') ) ) ? false : true; 
 
-		$cpts = $this->get_post_type_data();
+		if ( $post_id ) {
+			$cpts = $this->get_post_type_data( $post_id );
+
+			if( !$cpts ){
+				return new WP_Error('Post ID not found', 'Invalid ID', array('status' => 404));
+			}
+		}
+		else {
+			$cpts = $this->get_post_type_data();
+		}
+		
 		$cpt_metas = $this->get_post_type_metas_data();
 
 		$cpt_metas = cpt_to_map_store_group_by_id($cpt_metas, 'ID');

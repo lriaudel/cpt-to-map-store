@@ -7,11 +7,37 @@
 		<h2 class="title"><?php _e('JSON Feed urls', 'cpt-to-map-store'); ?></h2>
 		<p>
 			<?php $api_link = get_rest_url(null, '/' . Cpt_To_Map_Store::$api_slug .'/'. Cpt_To_Map_Store::get_option('geo_post_type') . '/' ); ?>
-			<a href="<?php echo $api_link; ?>" target="apri-rest-cpt-to-map-store"><?php echo $api_link; ?></a>
+			<table>
+				<tr>
+					<td><?php _e('All points: ', 'cpt-to-map-store'); ?></td>
+					<td><a href="<?php echo $api_link; ?>" target="apri-rest-cpt-to-map-store"><?php echo $api_link; ?></a></td>
+				</tr>
+				<tr>
+					<td><?php _e('A post point: ', 'cpt-to-map-store'); ?></td>
+					<td><?php echo $api_link; ?>{id}</td>
+				</tr>
+			</table>
+			
+
 		</p>
 
-		<h2 class="title"><?php _e('Map', 'cpt-to-map-store'); ?></h2>
-		<p><?php _e('Shortcode : ', 'cpt-to-map-store'); ?><strong><?php echo '[' . Cpt_To_Map_Store_Public::$shortcode_name . ']'; ?></strong></p>
+		<h2 class="title"><?php _e('Maps shortcodes', 'cpt-to-map-store'); ?></h2>
+		<p>
+			<table>
+				<tr>
+					<td><?php _e('All points: ', 'cpt-to-map-store'); ?></td>
+					<td><strong><?php echo '[' . Cpt_To_Map_Store_Public::$general_shortcode_name . ']'; ?></strong></td>
+				</tr>
+				<tr>
+					<td><?php _e('A post point: ', 'cpt-to-map-store'); ?></td>
+					<td>
+						<strong><?php echo '[' . Cpt_To_Map_Store_Public::$post_shortcode_name . ']'; ?></strong>
+						<br>or<br>
+						<strong><?php echo '[' . Cpt_To_Map_Store_Public::$post_shortcode_name . ' id="{post_id}" ]'; ?></strong>
+					</td>
+				</tr>
+			</table>
+		</p>
 
 		<?php if( !class_exists ('MOEWE\OSM_Tiles_proxy\Proxy') ) : ?>
 

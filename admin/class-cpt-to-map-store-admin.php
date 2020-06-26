@@ -156,6 +156,7 @@ class Cpt_To_Map_Store_Admin {
 				//var_dump( $options );
 				$options['map-width'] = 		( isset($_POST['map-width']) ) 			? sanitize_text_field( trim($_POST['map-width']) ) : '';
 				$options['map-height'] = 		( isset($_POST['map-height']) ) 		? sanitize_text_field( trim($_POST['map-height']) ) : '';
+				$options['default_zoom'] = 		( isset($_POST['default_zoom']) ) 		? sanitize_text_field( trim($_POST['default_zoom']) ) : '';
 
 				$res = update_option( Cpt_To_Map_Store::$id_setting_page, $options, false );
 				//var_dump($res, $options);

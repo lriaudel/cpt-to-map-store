@@ -236,6 +236,19 @@
 							<p class="description" id="map-height-description"><?php _e("The height of the HTML div." , 'cpt-to-map-store'); ?></p>
 
 						</td>
+					</tr>
+
+					<tr>
+						<th scope="row">
+							<label for="default-zoom"><?php _e('Default zoom', 'cpt-to-map-store'); ?></label>
+						</th>
+						<td>
+							<?php $value = ( empty( $options['default-zoom'] ) ) ? '8' : $options['default-zoom']; ?>
+							<input id="default-zoom" name="default-zoom" type="text" value="<?php echo $value; ?>">
+
+							<p class="description" id="default-zoom-description"><?php _e("The zoom level for a map with one marker." , 'cpt-to-map-store'); ?></p>
+
+						</td>
 					</tr>					
 				</tbody>
 			</table>

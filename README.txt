@@ -20,19 +20,19 @@ The plugin allows to :
 
 ### Features
 
-* Mapping from a Post Type to generate a GeoJson feed of all posts.
-* Exposure this Geojson feeds on the WordPress Rest-API
-* Possibility to make a template for the map markers popup
+* Mapping from a **Post Type** to generate a GeoJson feed of all posts.
+* Exposure this **Geojson feeds** on the WordPress Rest-API
+* Possibility to make a **template** for the map markers popup
 * Coordinate reading compatibility for :
     * a text field
     * an ACF Google Map field
     * an ACF field for the [ACF OpenStreetMap Fields](https://wordpress.org/plugins/acf-openstreetmap-field/) extension 
-* Displaying a map by shortcode of all points.
-* Open Street Map put in cache
+* Displaying a map by **shortcode of all points**.
+* Open Street Map put in **cache**
 
 ### Hook
 
-* The marker content
+#### The marker content
 You can customize more finely the marker popup content.
 
 Example:

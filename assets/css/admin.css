@@ -60,6 +60,10 @@
 .card ul {
 	list-style: disc;
 }
+.card table td {
+	vertical-align: top;
+	padding-right: 10px;
+}
 .spotlight {
 	background-color: gold;
 	padding: 0.5em 1em;
