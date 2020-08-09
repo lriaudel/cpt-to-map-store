@@ -84,13 +84,22 @@ class Cpt_To_Map_Store_Public {
 	public $osm_tiles_url = '//{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
 
 	/**
+	 * Default ID of the layer
+	 * 
+	 * @since	1.2.0
+	 * @access	public
+	 * @var		string	$layer_id	Id of the div to displaying the map
+	 */
+	public $default_map_layer_id = 'map_cpt_to_map_store';
+
+	/**
 	 * ID of the layer
 	 * 
 	 * @since	1.2.0
 	 * @access	public
 	 * @var		string	$layer_id	Id of the div to displaying the map
 	 */
-	public $map_layer_id = 'map_cpt_to_map_store';
+	public $map_layer_id;
 
 	/**
 	 * ID of the list layer
@@ -100,15 +109,17 @@ class Cpt_To_Map_Store_Public {
 	 * @var		string	$layer_id	Id of the div to displaying the map
 	 */
 	public $list_layer_id = 'list_cpt_to_map_store';
+
 	/**
-	 * Json feed add or not on the page
+	 * Post_id's list to display
 	 * 
 	 * @since	1.3.0
 	 * @access	public
-	 * @var		boolean		If json feed add on the page
+	 * @var		array
 	 */
-	public $var_and_json_feed_to_front = false;
+	public $cpt_map_store_settings_list = array();
 
+	
 	/**
 	 * Initialize the class and set its properties.
 	 *
@@ -119,6 +130,7 @@ class Cpt_To_Map_Store_Public {
 	 */
 	public function __construct( $class_cpt_to_map_store ) {
 
+		$this->map_layer_id = $this->default_map_layer_id;
 		$this->class_cpt_to_map_store = $class_cpt_to_map_store;
 		$this->plugin_name = $class_cpt_to_map_store->get_plugin_name();
 		$this->version = $class_cpt_to_map_store->get_version();
@@ -279,7 +291,7 @@ class Cpt_To_Map_Store_Public {
 		// If unique
 		if( is_int( $post_id ) ) {
 			$request['id'] = $post_id;
-			$this->map_layer_id = $this->map_layer_id . "_" . $post_id;
+			$this->map_layer_id = $this->default_map_layer_id . "_" . $post_id;
 		}
 		else {
 			$post_id = "";
@@ -321,10 +333,12 @@ class Cpt_To_Map_Store_Public {
 	 */
 	public function add_var_and_feed( $options, $request = null ) {
 
-		if( !$this->var_and_json_feed_to_front ) {
+		// Get post_id
+		$post_id = isset( $request['id'] ) ? $request['id'] : null;
 
-			$post_id = isset( $request['id'] ) ? $request['id'] : null;
-
+		// Add post_id setting in array
+		if( !isset( $this->cpt_map_store_settings_array[ $post_id ] ) ) {
+			
 			$cpt_map_store_settings = new Cpt_To_Map_Store_Front_Settings( $post_id );
 
 			$default_zoom = ( !empty($options['default_zoom']) ) ? $options['default_zoom'] : '8';
@@ -353,22 +367,29 @@ class Cpt_To_Map_Store_Public {
 				/**
 				 * Markers list
 				 */
-				'markers'			=> array()
+				'markers'			=> array(),
+
+				/**
+				 * Json Feed
+				 */
+				'json'				=> $this->class_cpt_to_map_store->create_GEO_Object( $request )
 			);
+
+			$this->cpt_map_store_settings_array[ $post_id ] = $cpt_map_store_settings;
+
+		}
+
+		// Localize script
 
 			/**
 			 * Add var options
 			 */
-			wp_localize_script( 'map-store', 'cpt_map_store_settings', $cpt_map_store_settings );
+			wp_localize_script( 'map-store', 'cpt_map_store_settings', $this->cpt_map_store_settings_array );
 
 			/**
 			 * Add json feed
 			 */
-			wp_localize_script( 'map-store', 'json', $this->class_cpt_to_map_store->create_GEO_Object( $request ) );
-
-			$this->var_and_json_feed_to_front = true;
-
-		}
+			//wp_localize_script( 'map-store', 'json', $this->class_cpt_to_map_store->create_GEO_Object( $request ) );
 
 	}
 

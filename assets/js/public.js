@@ -1,21 +1,26 @@
 
-if( json && !json.errors ) {
-	cpt_to_map_store_build_map( cpt_map_store_settings, json );
-}
+for ( var post_id in cpt_map_store_settings ) {
 
-else {
-	document.getElementById( cpt_map_store_settings.div_id ).append( 'CPT to map Store: Error in geojson var. ' );
+item = cpt_map_store_settings[post_id];
 
-	if( json.errors ){
-		document.getElementById( cpt_map_store_settings.div_id ).append( Object.keys(json.errors)[0] );
+	if( item.json && !item.json.errors ) {
+		cpt_to_map_store_build_map( item, item.json );
+	}
+	else {
+		document.getElementById( item.div_id ).append( 'CPT to map Store: Error in geojson var. ' );
+
+		if( json.errors ){
+			document.getElementById( item.div_id ).append( Object.keys(json.errors)[0] );
+		}
 	}
 }
+
 
 function cpt_to_map_store_build_map( cpt_map_store_settings, json ) {
 
 	var map = L.map( cpt_map_store_settings.map_layer_id );
 	var popup;
-	var nbFeature = Object.keys(json.features).length;
+	var nbFeature = Object.keys(cpt_map_store_settings.json.features).length;
 
 	L.tileLayer( cpt_map_store_settings.osm_tiles_url , {
 		attribution: 'Map data © <a href="https://openstreetmap.org">OpenStreetMap</a> contributors',
@@ -26,7 +31,7 @@ function cpt_to_map_store_build_map( cpt_map_store_settings, json ) {
 	/**
 	 * Add markers
 	 */
-	var geojsonLayer = L.geoJson(json, {
+	var geojsonLayer = L.geoJson(cpt_map_store_settings.json, {
 
 		pointToLayer: function(geoJsonPoint, latlng){
 
@@ -72,7 +77,7 @@ function cpt_to_map_store_build_map( cpt_map_store_settings, json ) {
 		});
 	}
 	else if( nbFeature == 1) {
-		var coord = json.features[0].geometry.coordinates;
+		var coord = cpt_map_store_settings.json.features[0].geometry.coordinates;
 		map.setView( [ coord[1], coord[0] ], cpt_map_store_settings.defaultZoom ); // inverted
 
 	}
