@@ -40,6 +40,11 @@ class Cpt_To_Map_Store_Public {
 	 */
 	private $version;
 
+	/**
+	 * @since	1.0.0
+	 * @access	private
+	 * @var		string		$class_cpt_to_map_store Class cpt_to_map_store
+	 */
 	private $class_cpt_to_map_store;
 
 	/**
@@ -61,6 +66,15 @@ class Cpt_To_Map_Store_Public {
 	public static $post_shortcode_name = 'post_map_store';
 
 	/**
+	 * List of all points
+	 * 
+	 * @since	1.3
+	 * @access	public
+	 * @var		string		$shortcode_name		Name of the shortcode for the list of all point
+	 */
+	public static $general_list_shortcode_name = 'list_map_store';
+
+	/**
 	 * Open Street Map Tile Serve
 	 * 
 	 * @since	1.1.0
@@ -71,8 +85,29 @@ class Cpt_To_Map_Store_Public {
 
 	/**
 	 * ID of the layer
+	 * 
+	 * @since	1.2.0
+	 * @access	public
+	 * @var		string	$layer_id	Id of the div to displaying the map
 	 */
-	public $layer_id = 'map_cpt_to_map_store';
+	public $map_layer_id = 'map_cpt_to_map_store';
+
+	/**
+	 * ID of the list layer
+	 * 
+	 * @since	1.2.0
+	 * @access	public
+	 * @var		string	$layer_id	Id of the div to displaying the map
+	 */
+	public $list_layer_id = 'list_cpt_to_map_store';
+	/**
+	 * Json feed add or not on the page
+	 * 
+	 * @since	1.3.0
+	 * @access	public
+	 * @var		boolean		If json feed add on the page
+	 */
+	public $var_and_json_feed_to_front = false;
 
 	/**
 	 * Initialize the class and set its properties.
@@ -96,6 +131,8 @@ class Cpt_To_Map_Store_Public {
 		add_shortcode( self::$general_shortcode_name, array( $this, 'create_map_store' ) );
 
 		add_shortcode( self::$post_shortcode_name, array( $this, 'create_post_map_store' ) );
+
+		add_shortcode( self::$general_list_shortcode_name, array( $this, 'create_list_map_store' ) );
 
 	}
 
@@ -166,7 +203,7 @@ class Cpt_To_Map_Store_Public {
 		?>
 
 			<style>
-				#map_cpt_to_map_store {
+				<?php echo '#'.esc_attr( $this->map_layer_id ); ?> {
 					width: <?php echo esc_attr($map_width); ?>;
 					height: <?php echo esc_attr($map_height); ?>;
 				}
@@ -179,6 +216,25 @@ class Cpt_To_Map_Store_Public {
 	}
 
 	/**
+	 * Load dependances for shortcodes
+	 * 
+	 * @since	1.3.0
+	 * @return	void
+	 */
+	public function init_shortcode() {
+
+		if ( !class_exists('Cpt_To_Map_Store_Front_Settings') ) {
+
+			require plugin_dir_path( __FILE__ ) . '/partials/class-to-map-store-front-settings.php';
+		
+		}
+
+		wp_enqueue_script( 'map-store' );
+		
+		wp_enqueue_style('leaflet');
+
+	}
+	/**
 	 * Create the OSM map of one CPTs
 	 * 
 	 * @since	1.2.0	Add for single map
@@ -187,7 +243,6 @@ class Cpt_To_Map_Store_Public {
 	public function create_post_map_store( $atts ){
 
 		if( isset( $atts ) && isset( $atts['id'] ) ) {
-
 			return $this->create_map_store( (int)$atts['id'] );
 		}
 		// if we don't have the id
@@ -211,53 +266,39 @@ class Cpt_To_Map_Store_Public {
 	 * Create the OSM map of the CPTs
 	 * 
 	 * @since	1.0.0
-	 * @since	1.2.0	Add single map
-	 * @return	string	HTML/JS OSM Map
+	 * @since	1.2.0		Add single map
+	 * @var		int			$id		Post id point to display
+	 * @return	string		HTML/JS OSM Map
 	 */
-	public function create_map_store( $id = null ) {
+	public function create_map_store( $post_id = null ) {
 
 		$request = null;
 
-		$div_id = $this->layer_id;
-
 		$options = Cpt_To_Map_Store::get_option();
-		$default_zoom = ( !empty($options['default_zoom']) ) ? $options['default_zoom'] : '8';
 
 		// If unique
-		if( is_int($id) ) {
-			$request['id'] = $id;
+		if( is_int( $post_id ) ) {
+			$request['id'] = $post_id;
+			$this->map_layer_id = $this->map_layer_id . "_" . $post_id;
 		}
 		else {
-			$id = "";
+			$post_id = "";
 		}
 
 		ob_start();
 
 		$this->get_custom_css( $options );
 
-		wp_enqueue_script( 'map-store' );
-		
-		wp_enqueue_style('leaflet');
-
-		$cpt_map_store_settings = array(
-			'div_id'			=> esc_attr( $div_id ),
-			'osm_tiles_url'		=> $this->get_osm_tiles_url(),
-			'defaultZoom'		=> esc_attr( $default_zoom )
-		);
+		$this->init_shortcode();
 
 		/**
-		 * Add default zoom for one marker
+		 * Add the GEOjson Object and other var after scripts
 		 */
-		wp_localize_script( 'map-store', 'cpt_map_store_settings', $cpt_map_store_settings );
+		$this->add_var_and_feed( $options, $request );
 
-		/**
-		 * Add the GEOjson Object
-		 */
-		wp_localize_script( 'map-store', 'json', $this->class_cpt_to_map_store->create_GEO_Object( $request ) );
-	
 		?>
 
-		<div id="<?php echo $div_id; ?>" class="cpt_to_map_store <?php echo ($id != "") ? 'unique' : 'general'; ?>"></div>
+		<div id="<?php echo $this->map_layer_id; ?>" class="cpt_to_map_store <?php echo ($post_id != "") ? 'unique' : 'general'; ?>"></div>
 
 		<?php
 
@@ -268,5 +309,85 @@ class Cpt_To_Map_Store_Public {
 		return $map;
 
 	} // end create_map_store()
+
+
+	/**
+	 * Add the GEOjson Object and other var
+	 * 
+	 * @since	1.3.0
+	 * @access	public
+	 * @var		string		$request Default $request to Rest-Api
+	 * @return	void
+	 */
+	public function add_var_and_feed( $options, $request = null ) {
+
+		if( !$this->var_and_json_feed_to_front ) {
+
+			$post_id = isset( $request['id'] ) ? $request['id'] : null;
+
+			$cpt_map_store_settings = new Cpt_To_Map_Store_Front_Settings( $post_id );
+
+			$default_zoom = ( !empty($options['default_zoom']) ) ? $options['default_zoom'] : '8';
+
+			$cpt_map_store_settings = array(
+				/**
+				 * Element id for creating the map
+				 */
+				'map_layer_id'			=> esc_attr( $this->map_layer_id ),
+
+				/**
+				 * Element id for creating the list
+				 */
+				'list_layer_id'			=> esc_attr( $this->list_layer_id ),
+
+				/**
+				 * Tile server
+				 */
+				'osm_tiles_url'		=> $this->get_osm_tiles_url(),
+
+				/**
+				 * Default map zoom
+				 */
+				'defaultZoom'		=> esc_attr( $default_zoom ),
+
+				/**
+				 * Markers list
+				 */
+				'markers'			=> array()
+			);
+
+			/**
+			 * Add var options
+			 */
+			wp_localize_script( 'map-store', 'cpt_map_store_settings', $cpt_map_store_settings );
+
+			/**
+			 * Add json feed
+			 */
+			wp_localize_script( 'map-store', 'json', $this->class_cpt_to_map_store->create_GEO_Object( $request ) );
+
+			$this->var_and_json_feed_to_front = true;
+
+		}
+
+	}
+
+
+	/**
+	 * 
+	 * @since	1.3.0	Add point list
+	 * @return	string	HTML/JS OSM Map
+	 */
+	function create_list_map_store() {
+
+		$this->add_var_and_feed( Cpt_To_Map_Store::get_option(), null );
+
+		?>
+
+		<div id="cpt_to_map_store_list" class="cpt_to_map_store_list"></div>
+
+		<?php
+
+	} // create_list_map_store
 
 }

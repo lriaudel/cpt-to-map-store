@@ -1,13 +1,3 @@
-/**
- * Decode HTML entities
- * 
- * @source https://stackoverflow.com/questions/1912501/unescape-html-entities-in-javascript#answer-1912522
- */
-function htmlDecode( encodedString ) {
-	var e = document.createElement('div');
-	e.innerHTML = encodedString;
-	return e.childNodes[0].nodeValue;
-}  
 
 if( json && !json.errors ) {
 	cpt_to_map_store_build_map( cpt_map_store_settings, json );
@@ -23,7 +13,7 @@ else {
 
 function cpt_to_map_store_build_map( cpt_map_store_settings, json ) {
 
-	var map = L.map( cpt_map_store_settings.div_id );
+	var map = L.map( cpt_map_store_settings.map_layer_id );
 	var popup;
 	var nbFeature = Object.keys(json.features).length;
 
@@ -37,6 +27,23 @@ function cpt_to_map_store_build_map( cpt_map_store_settings, json ) {
 	 * Add markers
 	 */
 	var geojsonLayer = L.geoJson(json, {
+
+		pointToLayer: function(geoJsonPoint, latlng){
+
+			/**
+			 * We create a default Icon
+			 */
+			di = new L.Icon.Default();
+			di.options.className = "marker-"+geoJsonPoint.id;
+
+			/**
+			 * Add the marker in a list before to add to map
+			 */
+			return cpt_map_store_settings.markers[geoJsonPoint.id] = L.marker(latlng, {
+				id: geoJsonPoint.id,
+				icon: di
+			});
+		},
 
 		onEachFeature: function (feature, layer) {
 			var popup;
@@ -58,8 +65,6 @@ function cpt_to_map_store_build_map( cpt_map_store_settings, json ) {
 	 * Recadre la carte avec les points
 	 * FitBounds only for more 2 markers
 	 */
-
-
 	if( nbFeature > 1) {
 
 		map.fitBounds(geojsonLayer.getBounds(), {
@@ -72,9 +77,15 @@ function cpt_to_map_store_build_map( cpt_map_store_settings, json ) {
 
 	}
 
-
-
-
-
-
 }
+
+/**
+ * Decode HTML entities
+ * 
+ * @source https://stackoverflow.com/questions/1912501/unescape-html-entities-in-javascript#answer-1912522
+ */
+function htmlDecode( encodedString ) {
+	var e = document.createElement('div');
+	e.innerHTML = encodedString;
+	return e.childNodes[0].nodeValue;
+}  

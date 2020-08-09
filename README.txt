@@ -28,6 +28,7 @@ The plugin allows to :
     * an ACF Google Map field
     * an ACF field for the [ACF OpenStreetMap Fields](https://wordpress.org/plugins/acf-openstreetmap-field/) extension 
 * Displaying a map by **shortcode of all points**.
+* Displaying a map by **shortcode of one point**.
 * Open Street Map put in **cache**
 
 ### Hook
