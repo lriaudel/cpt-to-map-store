@@ -260,8 +260,7 @@ class Cpt_To_Map_Store_Admin {
 					ON m.post_id = p.id
 			WHERE
 				p.post_type IN ( ".$format_in." )       
-				AND Substr(meta_key, 1, 1) <> '_'
-			LIMIT  50  
+				AND Substr(meta_key, 1, 1) <> '_' 
 		";
 
 		$query_sql = $wpdb->prepare( $query_sql , $cpts );
